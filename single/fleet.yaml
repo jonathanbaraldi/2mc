@@ -1,4 +1,4 @@
-namespace: multi-cluster-multi-cloud
+namespace: jonjon
 targetCustomizations:
 
 #- name: dev
