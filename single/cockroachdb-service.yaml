@@ -2,30 +2,6 @@
 apiVersion: v1
 kind: Service
 metadata:
-  # This service is meant to be used by clients of the database. It exposes a ClusterIP that will
-  # automatically load balance connections to the different database pods.
-  name: cockroachdb-public
-  labels:
-    app: cockroachdb
-spec:
-  ports:
-  # The main port, served by gRPC, serves Postgres-flavor SQL, internode
-  # traffic and the cli.
-  - port: 26257
-    targetPort: 26257
-    name: grpc
-  # The secondary port serves the UI as well as health and debug endpoints.
-  - port: 8080
-    targetPort: 8080
-    name: http
-  selector:
-    app: cockroachdb
-
-
----
-apiVersion: v1
-kind: Service
-metadata:
   # This service only exists to create DNS entries for each pod in the stateful
   # set such that they can resolve each other's IP addresses. It does not
   # create a load-balanced ClusterIP and should not be used directly by clients
@@ -58,40 +34,3 @@ spec:
   clusterIP: None
   selector:
     app: cockroachdb
-
-
----
-apiVersion: policy/v1beta1
-kind: PodDisruptionBudget
-metadata:
-  name: cockroachdb-budget
-  labels:
-    app: cockroachdb
-spec:
-  selector:
-    matchLabels:
-      app: cockroachdb
-  maxUnavailable: 1
-
-
-
----
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: cluster-init
-  labels:
-    app: cockroachdb
-spec:
-  template:
-    spec:
-      containers:
-      - name: cluster-init
-        image: cockroachdb/cockroach:v20.2.4
-        imagePullPolicy: IfNotPresent
-        command:
-          - "/cockroach/cockroach"
-          - "init"
-          - "--insecure"
-          - "--host=cockroachdb-0.cockroachdb"
-      restartPolicy: OnFailurea
