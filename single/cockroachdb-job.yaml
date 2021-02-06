@@ -18,4 +18,4 @@ spec:
           - "init"
           - "--insecure"
           - "--host=cockroachdb-0.cockroachdb"
-      restartPolicy: OnFailurea
+      restartPolicy: OnFailure
