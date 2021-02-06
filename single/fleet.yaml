@@ -1,4 +1,4 @@
-namespace: fleet-mc-manifest-example
+namespace: multi-cluster-multi-cloud
 targetCustomizations:
 
 #- name: dev
@@ -10,14 +10,14 @@ targetCustomizations:
 #    # Refers to overlays/noreplication folder
 #    - noreplication
 
-- name: prod-aws
+- name: aws
   clusterSelector:
     matchLabels:
-      env: prod-aws
+      env: aws
   yaml:
     overlays:
     # Refers to overlays/scale3 folder
-    - prod-aws
+    - aws
 
 
 
