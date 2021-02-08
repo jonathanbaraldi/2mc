@@ -1,0 +1,117 @@
+
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: database
+data:
+  user: 'root'
+  host: 'cockroachdb.jonjon.svc.cluster.local' 
+  database: 'bank' 
+  port: '26257'
+
+
+
+# ---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: mysecret
+# type: Opaque
+# data:
+#   username: am9uYXRoYW5iYXJhbGRp
+#   password: am9uam9u
+# 
+# ---
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: mypod
+# spec:
+#   containers:
+#   - name: mypod
+#     image: redis
+#     env:
+#     - name: username
+#       valueFrom:
+#         secretKeyRef:
+#           name: mysecret
+#           key: username
+#     - name: password
+#       valueFrom:
+#         secretKeyRef:
+#           name: mysecret
+#           key: password
+# 
+
+
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: 2mc
+  # namespace: whoami5
+  labels:
+    allow.http: "false"
+    application: 2mc
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      application: 2mc
+  template:
+    metadata:
+      labels:
+        application: 2mc
+    spec:
+      containers:
+      - name: 2mc
+        image: jonathanbaraldi/2mc-api:dev
+
+        envFrom:
+        - configMapRef:
+            name: database
+        ports:
+        - containerPort: 8080
+        securityContext:
+          privileged: true
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mc
+  # namespace: whoami5
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80 # Porta a ser exposta pelo SERVICE
+    targetPort: 8080 # Porta que a aplicação está rodando no POD
+  selector:
+    application: 2mc
+
+
+# ---
+# kind: Ingress
+# apiVersion: extensions/v1beta1
+# metadata:
+#   name: 2mc
+#   annotations:
+#     kubernetes.io/ingress.class: traefik
+#     traefik.ingress.kubernetes.io/router.tls: "true"
+#     traefik.ingress.kubernetes.io/router.tls.certresolver: default
+# spec:
+#   rules:
+#     - host: 2mc.rancher.<SEU_DOMINIO>
+#       http:
+#         paths:
+#           - backend:
+#               serviceName: whoami5
+#               servicePort: 80
+# 
+# 
+
+

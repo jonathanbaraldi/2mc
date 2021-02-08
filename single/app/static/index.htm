@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script src="./assets/jquery-3.2.1.min.js"></script>
+    <script>
+
+        url = "http://127.0.0.1:8000/book"; // ELB URL
+        // POST
+        function PostBook() {
+            
+            // id = $('input.id').val();
+            authorname = $('input.authorname').val();
+            bookname = $('input.bookname').val();
+            price = $('input.price').val();
+
+            data = {
+                'authorname' : authorname,
+                'bookname' : bookname,
+                'price': price
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: data,
+                dataType: 'json',
+                success: function(json) {
+                    console.log(json);
+
+                },
+                error: function(json) {
+                    console.log(json);
+                }
+            });    
+        }
+
+
+        // POST
+        function PutBook() {
+            
+            id = $('input.id').val();
+            authorname = $('input.authorname').val();
+            bookname = $('input.bookname').val();
+            price = $('input.price').val();
+
+            data = {
+                'id': id, 
+                'authorname' : authorname,
+                'bookname' : bookname,
+                'price': price
+            };
+
+            $.ajax({
+                type: 'PUT',
+                url: url,
+                data: data,
+                dataType: 'json',
+                success: function(json) {
+                    console.log(json);
+
+                },
+                error: function(json) {
+                    console.log(json);
+                }
+            });    
+        }
+        
+
+
+        function DeleteBook() {
+            
+            id = $('input.id').val();
+
+            data = {
+                'id': id
+            };
+
+            $.ajax({
+                type: 'DELETE',
+                url: url,
+                data: data,
+                dataType: 'json',
+                success: function(json) {
+                    console.log(json);
+                },
+                error: function(json) {
+                    console.log(json);
+                }
+            });    
+        }
+
+
+
+        function GetBook() {
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'json',
+                success: function(json) {
+                    console.log(json);
+                    Books = json.Books;
+                    
+                    // total = "Total: "+json.Total;
+                    // $('h3').text(total);
+
+                    $.each(Books, function(i, item){
+                        
+                        console.log(item.bookname);
+                        linha = "<tr>"
+                                    +"<td class='id'>"+item.id+"</td>"
+                                    +"<td>"+item.authorname+"</td>"
+                                    +"<td>"+item.bookname+"</td>"
+                                    +"<td>"+item.price+"</td>"
+                                    +"<td>   <button class='update' bookid='"+item.id+"'    authorname='"+item.authorname+"'   bookname='"+item.bookname+"'  price='"+item.price+"'  >Atualizar</button>              <button class='delete' bookid='"+item.id+"'    authorname='"+item.authorname+"'   bookname='"+item.bookname+"'  price='"+item.price+"' >Excluir</button>   </td>"
+
+                                +"</tr>";
+                        
+                        $('table tbody').append(linha);
+
+
+                    });
+                },
+                error: function(json) {
+                    console.log(json);
+                }
+            });
+    
+        }
+    
+        
+        $(document).ready(function(){
+            GetBook();
+
+            /*
+            setInterval(function(){
+                GetBook();
+            },1000);
+            */
+
+             $(document).on('click', 'table button.delete', function(e) {
+
+                //do whatever
+                console.log($(this).attr("bookid"));
+                console.log($(this).attr("authorname"));
+                console.log($(this).attr("bookname"));
+                console.log($(this).attr("price"));
+
+                $('input.id').val($(this).attr("bookid"));
+                $('input.authorname').val($(this).attr("authorname"));
+                $('input.bookname').val($(this).attr("bookname"));
+                $('input.price').val($(this).attr("price"));
+
+                DeleteBook();
+
+            });
+
+
+
+            $(document).on('click', 'table button.update', function(e) {
+
+                //do whatever
+                console.log($(this).attr("bookid"));
+                console.log($(this).attr("authorname"));
+                console.log($(this).attr("bookname"));
+                console.log($(this).attr("price"));
+
+                $('input.id').val($(this).attr("bookid"));
+                $('input.authorname').val($(this).attr("authorname"));
+                $('input.bookname').val($(this).attr("bookname"));
+                $('input.price').val($(this).attr("price"));
+
+                // PutBook();
+
+            });
+
+
+            $('button#submit').click(function(){
+                
+
+
+                console.log($('input.id').val());
+                
+                
+                if ( $('input.id').val()==="" ) {
+
+                    console.log("NOVO");
+                    PostBook();
+
+                } else {
+
+                    console.log("ATUALIZAR");
+                    PutBook();
+
+                }            
+
+            });
+
+        });
+    </script>
+    
+    <style>
+        body {
+            text-align: center;
+            font-family: courier;
+            background: #000;
+            color: green;
+        }
+        .id {
+            display: none;
+        }
+
+
+        table {
+            text-align: center;
+            width:70%; 
+            margin-left:15%; 
+            margin-right:15%;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+
+    <h1>
+        DevOps Ninja
+    </h1>
+
+
+    <h2>
+        Aplicação Multi-Cloud Multi-Cluster             
+    </h2>
+
+    <h3>Cloud:      AWS</h3>  
+    <h3>Cluster:    prod-1</h3>
+    <h3>Deployment: Single</h3>
+
+
+
+
+
+
+    <input type="text" class="id" />
+
+	<label>Author</label>
+    <input type="text" class="authorname" />
+    <br/>
+
+    <label>BookName</label>
+    <input type="text" class="bookname" />
+    <br/>
+
+    <label>Price</label>
+    <input type="text" class="price" />
+    <br/>
+
+    <button id="submit">Submit</button>
+
+
+
+
+
+    <table>
+        <thead>
+            <tr class="">
+                <th class="">Autor</th>
+                <th class="">Livro</th>
+                <th class="">Preço</th>
+                <th class="">Ação</th>
+            </tr>
+        </thead>
+        <tbody> </tbody>
+
+    </table>
+
+
+
+
+
+
+</body>
+</html>
