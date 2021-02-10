@@ -113,16 +113,3 @@ spec:
 
 
 
----
-apiVersion: policy/v1beta1
-kind: PodDisruptionBudget
-metadata:
-  name: cockroachdb-budget
-  labels:
-    app: cockroachdb
-spec:
-  selector:
-    matchLabels:
-      app: cockroachdb
-  maxUnavailable: 1
-

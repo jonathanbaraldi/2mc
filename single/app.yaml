@@ -94,24 +94,24 @@ spec:
     application: 2mc
 
 
-# ---
-# kind: Ingress
-# apiVersion: extensions/v1beta1
-# metadata:
-#   name: 2mc
-#   annotations:
-#     kubernetes.io/ingress.class: traefik
-#     traefik.ingress.kubernetes.io/router.tls: "true"
-#     traefik.ingress.kubernetes.io/router.tls.certresolver: default
-# spec:
-#   rules:
-#     - host: 2mc.rancher.<SEU_DOMINIO>
-#       http:
-#         paths:
-#           - backend:
-#               serviceName: whoami5
-#               servicePort: 80
-# 
-# 
+---
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: 2mc
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.tls.certresolver: default
+spec:
+  rules:
+    - host: 2mc.rancher.dev-ops-ninja.com
+      http:
+        paths:
+          - backend:
+              serviceName: mc
+              servicePort: 80
+
+
 
 
