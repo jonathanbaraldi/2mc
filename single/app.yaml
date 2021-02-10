@@ -74,7 +74,7 @@ spec:
         - configMapRef:
             name: database
         ports:
-        - containerPort: 8080
+        - containerPort: 8000
         securityContext:
           privileged: true
 
@@ -89,7 +89,7 @@ spec:
   type: ClusterIP
   ports:
   - port: 80 # Porta a ser exposta pelo SERVICE
-    targetPort: 8080 # Porta que a aplicação está rodando no POD
+    targetPort: 8000 # Porta que a aplicação está rodando no POD
   selector:
     application: 2mc
 
