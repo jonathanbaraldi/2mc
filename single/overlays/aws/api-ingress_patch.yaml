@@ -1,3 +1,8 @@
 spec:
   rules:
     - host: api.dev-ops-ninja.com
+      http:
+        paths:
+          - backend:
+              serviceName: mc
+              servicePort: 8000
