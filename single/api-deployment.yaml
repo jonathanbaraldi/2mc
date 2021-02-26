@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: 2mc
-        image: jonathanbaraldi/2mc-api:dev
+        image: jonathanbaraldi/2mc-api:dev2
 
         envFrom:
         - configMapRef:

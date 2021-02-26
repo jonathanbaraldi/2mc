@@ -57,11 +57,11 @@ app.use(function(req, res, next) {
 // GET
 app.get('/',function(req,res){
 	var data = {
+		"msg" : "Bem-vindo a sua primeira aplicação multi-cloud multi-cluster",
 		"cloud":cloud,
 		"cluster":cluster,
 		"deployment":deployment
 	};
-	data["Data"] = "Welcome to Jon's API";
 	res.json(data);
 	console.log(data);
 });

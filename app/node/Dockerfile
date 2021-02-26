@@ -19,4 +19,4 @@ EXPOSE  8080
 CMD ["node", "/src/server.js"]
 
 
-# docker build -t jonathanbaraldi/2mc-api:dev .
+# docker build -t jonathanbaraldi/2mc-api:dev2 .
