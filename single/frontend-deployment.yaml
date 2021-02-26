@@ -1,0 +1,26 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: 2mc-frontend
+  # namespace: whoami5
+  labels:
+    allow.http: "false"
+    application: 2mc-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      application: 2mc-frontend
+  template:
+    metadata:
+      labels:
+        application: 2mc-frontend
+    spec:
+      containers:
+      - name: 2mc-frontend
+        image: jonathanbaraldi/2mc-static:v1
+        ports:
+        - containerPort: 80
+        securityContext:
+          privileged: true

@@ -14,3 +14,15 @@ Fazer os efeitos
 - Colocar o CSS
 
 
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
+
+
+docker build -t jonathanbaraldi/2mc-static:v1 .
+
+docker run -d -p 8080:80 jonathanbaraldi/2mc-static:v1
+
+
+
+
+docker build -t jonathanbaraldi/2mc-api:dev .

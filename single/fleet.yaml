@@ -19,6 +19,15 @@ targetCustomizations:
     # Refers to overlays/scale3 folder
     - aws
 
+- name: gcp
+  clusterSelector:
+    matchLabels:
+      env: gcp
+  yaml:
+    overlays:
+    # Refers to overlays/scale3 folder
+    - gcp
+
 
 
 # - name: prod-2

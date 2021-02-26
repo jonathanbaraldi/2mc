@@ -15,8 +15,14 @@ var host = process.env.host;
 var database = process.env.database;
 var port = process.env.port;
 
+
+var cloud = process.env.cloud;
+var cluster = process.env.cluster;
+var deployment = process.env.deployment;
+
 console.log(user, host, database, port);
 
+console.log(cloud, cluster, deployment);
 
 var config = {
     user: user,
@@ -24,6 +30,7 @@ var config = {
     database: database,
     port: port
 };
+
 // Create a pool.
 var pool = new pg.Pool(config);
 
@@ -50,7 +57,9 @@ app.use(function(req, res, next) {
 // GET
 app.get('/',function(req,res){
 	var data = {
-		"Data":""
+		"cloud":cloud,
+		"cluster":cluster,
+		"deployment":deployment
 	};
 	data["Data"] = "Welcome to Jon's API";
 	res.json(data);
@@ -58,71 +67,6 @@ app.get('/',function(req,res){
 });
 
 
-// GET 
-app.get('/html',function(req,res){
-	
-	var data = {
-		"Data":""
-	};
-	
-	data["Data"] = "API de Serviços do Jon";
-	data["Ver"] = "0.2";
-
-	var body = '<html>'
-				+'	<head>'
-				+'	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>'
-				+'	</head>'
-
-				+'	<body>'
-				+'	    <form action="/upload" method="post">'
-				+'	        <textarea name="text" rows="20" cols="60"></textarea>'
-				+'	        <input type="submit" value="Submit text"/>'
-				+'	    </form>'
-				+'	    <form action="/upload" method="post">'
-				+'	        <textarea name="text" rows="20" cols="60"></textarea>'
-				+'	        <input type="submit" value="Submit text"/>'
-				+'	    </form>'
-				+'	    <form action="/upload" method="post">'
-				+'	        <textarea name="text" rows="20" cols="60"></textarea>'
-				+'	        <input type="submit" value="Submit text"/>'
-				+'	    </form>'
-				+'	    <form action="/upload" method="post">'
-				+'	        <textarea name="text" rows="20" cols="60"></textarea>'
-				+'	        <input type="submit" value="Submit text"/>'
-				+'	    </form>'
-				+'	    <form action="/upload" method="post">'
-				+'	        <textarea name="text" rows="20" cols="60"></textarea>'
-				+'	        <input type="submit" value="Submit text"/>'
-				+'	    </form>'
-				+'	    <form action="/upload" method="post">'
-				+'	        <textarea name="text" rows="20" cols="60"></textarea>'
-				+'	        <input type="submit" value="Submit text"/>'
-				+'	    </form>'
-				+'	</body>'
-				+'	</html>';
-
-	res.writeHead(200,{"Content-Type" : "text/html"});
-	res.write(body);
-	res.end();
-});
-
-
-
-
-
-
-
-/*
-
-drop table books.book;
-CREATE DATABASE books;
-CREATE TABLE books.book ( id MEDIUMINT NOT NULL AUTO_INCREMENT, BookName VARCHAR(100), AuthorName VARCHAR(100), Price VARCHAR(10), PRIMARY KEY (id)); 
-
-SELECT * FROM books.book;
-
-INSERT INTO books.book VALUES (1,"My first autoscalling app","YourName","69");
-
-*/
 
 
 app.get('/load',function(req,res){
@@ -174,14 +118,6 @@ app.get('/load',function(req,res){
 
 
 });
-
-
-
-
-
-
-
-
 
 
 

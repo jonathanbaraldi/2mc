@@ -1,0 +1,3 @@
+spec:
+  rules:
+    - host: cockroachdb.dev-ops-ninja.com
