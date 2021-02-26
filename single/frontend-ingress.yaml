@@ -4,9 +4,6 @@ apiVersion: extensions/v1beta1
 metadata:
   name: 2mc-frontend
   annotations:
-    kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.tls.certresolver: default
 spec:
   rules:
     - host: app.rancher.<DOMINIO>

@@ -1,9 +1,14 @@
 # 2mc
 
+
+- Verificar o statefulset do cockroachDB para cada nuvem.
+
+
+
+
 * TERMINAR NA GCP
 - Criar o Balanceador via cli, para outro dominio. usando o certificado ssl
 - pensar na entrega global.
-
 
 
 - CRIAR CERTIFICADO LETS ENCRYPT PARA RODAR MULTI-CLOUD MULTI-CLUSTER 
