@@ -4,5 +4,5 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: mc
-              servicePort: 8000
+              serviceName: mc-frontend
+              servicePort: 80
