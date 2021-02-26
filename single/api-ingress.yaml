@@ -1,5 +1,4 @@
 ---
-
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
@@ -7,7 +6,7 @@ metadata:
   annotations:
 spec:
   rules:
-    - host: api.rancher.<DOMINIO>
+    - host: api.rancher
       http:
         paths:
           - backend:

@@ -6,7 +6,7 @@ metadata:
   annotations:
 spec:
   rules:
-    - host: app.rancher.<DOMINIO>
+    - host: app.rancher
       http:
         paths:
           - backend:
