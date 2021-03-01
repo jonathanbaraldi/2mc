@@ -18,3 +18,5 @@ spec:
           - "--insecure"
           - "--host=cockroachdb-0.cockroachdb"
       restartPolicy: OnFailure
+
+# COLOCAR A CRIAÇÃO DO BANCO NO INIT

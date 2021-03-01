@@ -3,6 +3,15 @@ spec:
     - host: api.dev-ops-ninja.com
       http:
         paths:
-          - backend:
-              serviceName: mc
-              servicePort: 8000
+          - path: /book
+            backend:
+              serviceName: api-book
+              servicePort: 80
+          - path: /song
+            backend:
+              serviceName: api-song
+              servicePort: 80
+          - path: /video
+            backend:
+              serviceName: api-video
+              servicePort: 80

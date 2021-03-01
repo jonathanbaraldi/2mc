@@ -20,7 +20,17 @@ spec:
       containers:
       - name: 2mc-frontend
         image: jonathanbaraldi/2mc-static:v1
+
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/share/nginx/html/api.js
+          subPath: api.js
+
         ports:
         - containerPort: 80
         securityContext:
           privileged: true
+      volumes:
+      - name: config-volume
+        configMap:
+          name: 2mc-configmap

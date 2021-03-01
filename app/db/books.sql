@@ -1,10 +1,12 @@
 
-drop table books.book;
+drop table files.book;
+drop table files.song;
+drop table files.video;
 
-CREATE DATABASE books;
 
+CREATE DATABASE files;
 
-CREATE TABLE books.book ( 
+CREATE TABLE files.book ( 
 	id SERIAL PRIMARY KEY, 
 	BookName TEXT NOT NULL, 
 	AuthorName TEXT NOT NULL, 
@@ -12,8 +14,22 @@ CREATE TABLE books.book (
 ); 
 
 
+CREATE TABLE files.song ( 
+	id SERIAL PRIMARY KEY, 
+	SongName TEXT NOT NULL, 
+	AuthorName TEXT NOT NULL, 
+	Price REAL
+); 
 
-SELECT * FROM books.book;
 
-INSERT INTO books.book VALUES (1,"My first autoscalling app","YourName","69");
+CREATE TABLE files.video ( 
+	id SERIAL PRIMARY KEY, 
+	VideoName TEXT NOT NULL, 
+	AuthorName TEXT NOT NULL, 
+	Price REAL
+); 
+
+
+
+
 

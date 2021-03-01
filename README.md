@@ -1,8 +1,31 @@
 # 2mc
 
 
-- Verificar o statefulset do cockroachDB para cada nuvem.
 
+
+## PIPELINE GITHUB ACTIONS
+https://github.com/marketplace/actions/build-and-push-docker-images
+
+- Fazer o build das imagens usando o Github Actions e publicando elas no DockerHub.
+- Depois quando fizer o commit para o master, ele aplica e o Fleet? 
+
+	* UM REPOSITORIO PARA IMAGENS DE CONTAINER ???
+	* UM REPOSITORIO PARA FLEET ?
+
+
+	SIM - 2 worklows - ou o mesmo, colocando tudo em IF no codigo, conforme for a branch e o evento - fazer por branch - dev
+
+
+
+## https://www.docker.com/blog/docker-github-actions/
+
+
+
+
+
+
+
+- Verificar o statefulset do cockroachDB para cada nuvem.
 
 
 
