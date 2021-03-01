@@ -1,6 +1,18 @@
 # 2mc
 
 
+INICIALIZAR O BANCO DE DADOS
+
+- VER O CAMINHO DAS APIS
+
+- VER O STSTIC COM O ARQUIVO API.js
+
+
+
+
+
+
+
 
 
 ## PIPELINE GITHUB ACTIONS
@@ -88,7 +100,7 @@ SECOES
 # REQUISITOS
 
 2 nuvens - Preferência AWS e GCP || 2 datacenters, ou algo que simule 2 provedores distintos.
-1  ou mais domínios - DNS
+2 ou mais domínios - DNS
 4 maquinas virtuais  na primeira nuvem
 3 manquinas virtuais na segunda nuvem
 

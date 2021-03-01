@@ -45,7 +45,7 @@ kubectl -n jonjon run cockroachdb -it \
 --restart=Never \
 -- sql \
 --insecure \
---host=cockroachdb
+--host=cockroachdb.jonjon.svc.cluster.local
 
 
 

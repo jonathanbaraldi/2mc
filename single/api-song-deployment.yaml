@@ -8,7 +8,7 @@ metadata:
     allow.http: "false"
     application: api-song
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       application: api-song
@@ -20,7 +20,7 @@ spec:
       containers:
       - name: api-song
         image: jonathanbaraldi/api-song:dev
-
+        imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: config

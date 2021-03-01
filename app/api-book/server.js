@@ -50,6 +50,9 @@ app.use(function(req, res, next) {
 
 
 
+/*
+
+
 // GET
 app.get('/',function(req,res){
 	var data = {
@@ -62,8 +65,6 @@ app.get('/',function(req,res){
 	res.json(data);
 	console.log(data);
 });
-
-
 
 
 app.get('/load',function(req,res){
@@ -103,28 +104,18 @@ app.get('/load',function(req,res){
 	            
 	            res.json(results);
     			// console.log(results);
-    			/*
-	            results.rows.forEach(function (row) {
-	                console.log(row);
-	            });
-	            */
-
 	            finish();
 	        });
 	});
 
-
 });
 
-
-
-
-
+*/
 
 
 
 // GET /book
-app.get('/book',function(req,res){
+app.get('/',function(req,res){
 	
 
 	pool.connect(function (err, client, done) {
@@ -163,7 +154,7 @@ app.get('/book',function(req,res){
 
 
 // POST /book
-app.post('/book',function(req,res){
+app.post('/',function(req,res){
 
 	var Bookname = req.body.bookname;
 	var Authorname = req.body.authorname;
@@ -214,7 +205,7 @@ app.post('/book',function(req,res){
 // ===================================
 
 // PUT /book
-app.put('/book',function(req,res){
+app.put('/',function(req,res){
 	var Id = req.body.id;
 	var Bookname = req.body.bookname;
 	var Authorname = req.body.authorname;
@@ -267,7 +258,7 @@ app.put('/book',function(req,res){
 // ===================================
 
 // DELETE /book
-app.delete('/book',function(req,res){
+app.delete('/',function(req,res){
 	var Id = req.body.id;
 	var data = {
 		"error":1,

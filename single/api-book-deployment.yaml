@@ -8,7 +8,7 @@ metadata:
     allow.http: "false"
     application: api-book
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       application: api-book
@@ -20,7 +20,7 @@ spec:
       containers:
       - name: api-book
         image: jonathanbaraldi/api-book:dev
-
+        imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: config
