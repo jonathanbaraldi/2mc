@@ -1,4 +1,4 @@
-namespace: jonjon
+namespace: default
 targetCustomizations:
 
 #- name: dev
