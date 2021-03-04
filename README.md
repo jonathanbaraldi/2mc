@@ -1,15 +1,34 @@
 # 2mc
 
 
-INICIALIZAR O BANCO DE DADOS
+
+- ! Balanceadores de carga para os bancos de dados
+- Arquitetura da aplicação - front end - 3 backends - 1 db
+
+
+
+
+- INICIALIZAR O BANCO DE DADOS
 
 - VER O CAMINHO DAS APIS
 
 - VER O STSTIC COM O ARQUIVO API.js
 
 
+- Fazer o balanceador de carga para os bancos de dados. 
 
 
+# RODAMAP PARA CONTINUCAO
+- Automação da infra através do terraform, com Github Actions
+- Automação do pipeline na construção dos containers
+- ServiceMesh  single e multi-cluster
+- submariner
+
+
+
+
+
+https://github.com/GoogleCloudPlatform/microservices-demo.git
 
 
 

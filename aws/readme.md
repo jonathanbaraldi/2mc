@@ -133,3 +133,48 @@ $ CREATE DATABASE files;
 ```
 
 
+
+
+
+
+# INSTALAÇÃO DO ELB PARA DB
+
+```sh
+# LOAD BALANCER
+
+# Primeiro criar as instâncias, explicar a rede, ec2, ebs - Na aws e no gcp. 
+
+# !! ESPECIFICAR O SECURITY GROUPS DO LOAD BALANCER
+
+$ aws elbv2 create-load-balancer --name multicloud --type application --subnets subnet-029d881ddd31e011e subnet-09c5a4961e6056757
+#	 "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:984102645395:loadbalancer/app/multicloud/0c7e036793bff35e"
+
+
+$ aws elbv2 create-target-group --name multicloud --protocol HTTP --port 80 --vpc-id vpc-02afbb5885b388b31 --health-check-port 8080 --health-check-path /api/providers
+#	 "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:984102645395:targetgroup/multicloud/7bec592c3183d340"
+	
+# REGISTRAR OS TARGETS  
+$ aws elbv2 register-targets --target-group-arn arn:aws:elasticloadbalancing:us-east-1:984102645395:targetgroup/multicloud/7bec592c3183d340 --targets Id=i-05dee686e144e4e9f Id=i-0644d3dd908b3ad2b Id=i-0ed59f6d665a34102 
+
+
+# ARN DO Certificado - arn:aws:acm:us-east-1:984102645395:certificate/fa016001-254f-4127-b51a-61588b15c555
+# HTTPS - CRIADO PRIMEIRO
+$ aws elbv2 create-listener \
+    --load-balancer-arn arn:aws:elasticloadbalancing:us-east-1:984102645395:loadbalancer/app/multicloud/0c7e036793bff35e \
+    --protocol HTTPS \
+    --port 443 \
+    --certificates CertificateArn=arn:aws:acm:us-east-1:984102645395:certificate/fa016001-254f-4127-b51a-61588b15c555   \
+    --ssl-policy ELBSecurityPolicy-2016-08 --default-actions Type=forward,TargetGroupArn=arn:aws:elasticloadbalancing:us-east-1:984102645395:targetgroup/multicloud/7bec592c3183d340
+#  "ListenerArn": "arn:aws:elasticloadbalancing:us-east-1:984102645395:listener/app/multicloud/0c7e036793bff35e/a7b360b3aaac014f"
+
+
+
+$ aws elbv2 describe-target-health --target-group-arn targetgroup-arn
+
+# DESCRIBE NO LISTENER
+$ aws elbv2 describe-listeners --listener-arns arn:aws:elasticloadbalancing:us-east-1:984102645395:listener/app/multicloud/0c7e036793bff35e/a7386cf3e0dc3c0e
+
+
+```
+
+
