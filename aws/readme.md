@@ -64,8 +64,14 @@ $ aws elbv2 create-load-balancer --name multicloud --type application --subnets 
 $ aws elbv2 create-target-group --name multicloud --protocol HTTP --port 80 --vpc-id vpc-02afbb5885b388b31 --health-check-port 8080 --health-check-path /api/providers
 #	 "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:984102645395:targetgroup/multicloud/7bec592c3183d340"
 	
+	
 # REGISTRAR OS TARGETS  
-$ aws elbv2 register-targets --target-group-arn arn:aws:elasticloadbalancing:us-east-1:984102645395:targetgroup/multicloud/7bec592c3183d340 --targets Id=i-0cde614790e9f9cee Id=i-0c415f1b755a1afd1 Id=i-01945482a18308773 
+$ aws elbv2 register-targets --target-group-arn arn:aws:elasticloadbalancing:us-east-1:984102645395:targetgroup/multicloud/7bec592c3183d340 --targets Id=i-09fb02a8c17226818 Id=i-08bd77040cee1f987 Id=i-09ff89e901bc49769 
+
+
+i-09fb02a8c17226818
+i-08bd77040cee1f987
+i-09ff89e901bc49769
 
 
 # ARN DO Certificado - arn:aws:acm:us-east-1:984102645395:certificate/fa016001-254f-4127-b51a-61588b15c555
@@ -76,7 +82,7 @@ $ aws elbv2 create-listener \
     --port 443 \
     --certificates CertificateArn=arn:aws:acm:us-east-1:984102645395:certificate/fa016001-254f-4127-b51a-61588b15c555   \
     --ssl-policy ELBSecurityPolicy-2016-08 --default-actions Type=forward,TargetGroupArn=arn:aws:elasticloadbalancing:us-east-1:984102645395:targetgroup/multicloud/7bec592c3183d340
-#  "ListenerArn": "arn:aws:elasticloadbalancing:us-east-1:984102645395:listener/app/multicloud/215d083f382b0fbb/15478b5f4060a127"
+#  "ListenerArn": "arn:aws:elasticloadbalancing:us-east-1:984102645395:listener/app/multicloud/215d083f382b0fbb/15478b5f4060a127",
 
 
 

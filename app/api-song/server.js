@@ -50,74 +50,11 @@ app.use(function(req, res, next) {
 
 
 
-// GET
-app.get('/',function(req,res){
-	var data = {
-		"msg" : "Bem-vindo a sua primeira aplicação multi-cloud multi-cluster",
-		"api" : "song-api",
-		"cloud":cloud,
-		"cluster":cluster,
-		"deployment":deployment
-	};
-	res.json(data);
-	console.log(data);
-});
-
-
-
-
-app.get('/load',function(req,res){
-
-	pool.connect(function (err, client, done) {
-
-	    // Close communication with the database and exit.
-	    var finish = function () {
-	        done();
-	        // process.exit();
-	    };
-
-	    if (err) {
-	        console.error('could not connect to cockroachdb', err);
-	        finish();
-	    }
-	    async.waterfall([
-	            
-	            function (next) {
-	                // Create the 'accounts' table.
-	                client.query('CREATE TABLE files.song ( id SERIAL PRIMARY KEY, SONGNAME TEXT NOT NULL, AUTHORNAME TEXT NOT NULL, PRICE REAL);', next);
-	            	// client.query('select * from books.book', next);
-	            },
-	            function (results, next) {
-	                // Print out account balances.
-	                client.query("INSERT INTO files.song ( SONGNAME, AUTHORNAME, PRICE) VALUES ('SongJones', 'Jonathan', 35000.00);", next);
-	            },
-
-	        ],
-	        function (err, results) {
-	            if (err) {
-	                console.error('Error inserting into and selecting from accounts: ', err);
-	                finish();
-	            }
-
-	            console.log('Database loaded:');
-	            
-	            res.json(results);
-    			// console.log(results);
-	            finish();
-	        });
-	});
-
-
-});
-
-
-
-
 
 
 
 // GET /book
-app.get('/song',function(req,res){
+app.get('/',function(req,res){
 	
 
 	pool.connect(function (err, client, done) {
@@ -156,7 +93,7 @@ app.get('/song',function(req,res){
 
 
 // POST /book
-app.post('/song',function(req,res){
+app.post('/',function(req,res){
 
 	var Songname = req.body.songname;
 	var Authorname = req.body.authorname;
@@ -207,7 +144,7 @@ app.post('/song',function(req,res){
 // ===================================
 
 // PUT /book
-app.put('/song',function(req,res){
+app.put('/',function(req,res){
 	var Id = req.body.id;
 	var Songname = req.body.songname;
 	var Authorname = req.body.authorname;
@@ -250,17 +187,19 @@ app.put('/song',function(req,res){
 
 
 
-	}else{
+	} else {
+
 		data["Songs"] = "Por favor, informe todos os dados:  (id, songname, authorname, price )";
 		res.json(data);
 		console.log(data);
+
 	}
 });
 
 // ===================================
 
 // DELETE /book
-app.delete('/song',function(req,res){
+app.delete('/',function(req,res){
 	var Id = req.body.id;
 	var data = {
 		"error":1,
@@ -308,6 +247,6 @@ app.delete('/song',function(req,res){
 	}
 });
 
-app.listen(8000,function(){
-	console.log("song-api online 8000");
+app.listen(80,function(){
+	console.log("song-api online 80");
 });

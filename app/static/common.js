@@ -10,12 +10,30 @@ urlVideo = api + VideoPath; // ELB URL
 // ===================================================================
 // ===================================================================
 
+/*
+<input type="text" class="book_id" />
+
+<label>Author</label>
+<input type="text" class="book_authorname" />
+<br/>
+
+<label>BookName</label>
+<input type="text" class="bookname" />
+<br/>
+
+<label>Price</label>
+<input type="text" class="book_price" />
+*/
+
+
+
+
 // POST
 function PostBook() {
     // id = $('input.id').val();
-    authorname = $('input.authorname').val();
+    authorname = $('input.book_authorname').val();
     bookname = $('input.bookname').val();
-    price = $('input.price').val();
+    price = $('input.book_price').val();
 
     data = {
         'authorname' : authorname,
@@ -42,10 +60,10 @@ function PostBook() {
 // POST
 function PutBook() {
     
-    id = $('input.id').val();
-    authorname = $('input.authorname').val();
+    id = $('input.book_id').val();
+    authorname = $('input.book_authorname').val();
     bookname = $('input.bookname').val();
-    price = $('input.price').val();
+    price = $('input.book_price').val();
 
     data = {
         'id': id, 
@@ -73,7 +91,7 @@ function PutBook() {
 
 function DeleteBook() {
     
-    id = $('input.id').val();
+    id = $('input.book_id').val();
 
     data = {
         'id': id
@@ -112,7 +130,7 @@ function GetBook() {
                 
                 console.log(item.bookname);
                 linha = "<tr>"
-                            +"<td class='id'>"+item.id+"</td>"
+                            +"<td class='book_id'>"+item.id+"</td>"
                             +"<td>"+item.authorname+"</td>"
                             +"<td>"+item.bookname+"</td>"
                             +"<td>"+item.price+"</td>"
@@ -264,6 +282,147 @@ function GetSong() {
 
 
 
+// POST
+function PostVideo() {
+    // id = $('input.id').val();
+    authorname = $('input.song_authorname').val();
+    songname = $('input.songname').val();
+    price = $('input.song_price').val();
+
+    data = {
+        'authorname' : authorname,
+        'songname' : songname,
+        'price': price
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: urlSong,
+        data: data,
+        dataType: 'json',
+        success: function(json) {
+            console.log(json);
+
+        },
+        error: function(json) {
+            console.log(json);
+        }
+    });    
+}
+
+
+// POST
+function PutVideo() {
+    
+    id = $('input.song_id').val();
+    authorname = $('input.song_authorname').val();
+    songname = $('input.songname').val();
+    price = $('input.song_price').val();
+
+    data = {
+        'id': id, 
+        'authorname' : authorname,
+        'songname' : songname,
+        'price': price
+    };
+
+    $.ajax({
+        type: 'PUT',
+        url: urlSong,
+        data: data,
+        dataType: 'json',
+        success: function(json) {
+            console.log(json);
+
+        },
+        error: function(json) {
+            console.log(json);
+        }
+    });    
+}
+
+
+
+function DeleteVideo() {
+    
+    id = $('input.song_id').val();
+
+    data = {
+        'id': id
+    };
+
+    $.ajax({
+        type: 'DELETE',
+        url: urlSong,
+        data: data,
+        dataType: 'json',
+        success: function(json) {
+            console.log(json);
+        },
+        error: function(json) {
+            console.log(json);
+        }
+    });    
+}
+
+
+
+function GetVideo() {
+
+    $.ajax({
+        type: 'GET',
+        url: urlSong,
+        dataType: 'json',
+        success: function(json) {
+            console.log(json);
+            Songs = json.Songs;
+            
+            // total = "Total: "+json.Total;
+            // $('h3').text(total);
+
+            $.each(Songs, function(i, item){
+                
+                console.log(item.songname);
+                linha = "<tr>"
+                            +"<td class='id'>"+item.id+"</td>"
+                            +"<td>"+item.authorname+"</td>"
+                            +"<td>"+item.songname+"</td>"
+                            +"<td>"+item.price+"</td>"
+                            +"<td>   <button class='update' songid='"+item.id+"'    authorname='"+item.authorname+"'   songname='"+item.songname+"'  price='"+item.price+"'  >Atualizar</button>              <button class='delete' songid='"+item.id+"'    authorname='"+item.authorname+"'   songname='"+item.songname+"'  price='"+item.price+"' >Excluir</button>   </td>"
+
+                        +"</tr>";
+                
+                $('table#song tbody').append(linha);
+
+
+            });
+        },
+        error: function(json) {
+            console.log(json);
+        }
+    });
+
+}
+
+// ===================================================================
+// ===================================================================
+// ===================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -294,6 +453,7 @@ $(document).ready(function(){
 
     GetBook();
     GetSong();
+    GetVideo();
 
     /*
     setInterval(function(){
@@ -407,9 +567,64 @@ $(document).ready(function(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+    $(document).on('click', 'table#video button.delete', function(e) {
+
+        //do whatever
+        console.log($(this).attr("video_id"));
+        console.log($(this).attr("video_authorname"));
+        console.log($(this).attr("videoname"));
+        console.log($(this).attr("video_price"));
+
+        $('input.video_id').val($(this).attr("video_id"));
+        $('input.video_authorname').val($(this).attr("video_authorname"));
+        $('input.videoname').val($(this).attr("videoname"));
+        $('input.video_price').val($(this).attr("video_price"));
+        DeleteVideo();
+
+    });
+
+
+    $(document).on('click', 'table#video button.update', function(e) {
+
+        console.log($(this).attr("video_id"));
+        console.log($(this).attr("video_authorname"));
+        console.log($(this).attr("videoname"));
+        console.log($(this).attr("video_price"));
+
+        $('input.video_id').val($(this).attr("video_id"));
+        $('input.video_authorname').val($(this).attr("video_authorname"));
+        $('input.videoname').val($(this).attr("videoname"));
+        $('input.video_price').val($(this).attr("video_price"));
+        PutVideo();
+    });
+
+    $('button#submit-video').click(function(){
+        console.log($('input.video_id').val());
+        
+        if ( $('input.video_id').val()==="" ) {
+            console.log("NOVO");
+            PostSong();
+        } else {
+            console.log("ATUALIZAR");
+            PutSong();
+        }            
+
+    });
+
+
+
+
+
+
+
 });
-
-
-
-
-

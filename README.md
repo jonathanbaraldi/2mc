@@ -1,6 +1,13 @@
 # 2mc
+- Colocar liveness
+- resdness
+
+- limites
 
 
+
+
+-
 
 - ! Balanceadores de carga para os bancos de dados
 - Arquitetura da aplicação - front end - 3 backends - 1 db

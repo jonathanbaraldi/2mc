@@ -51,78 +51,12 @@ app.use(function(req, res, next) {
 
 
 
-// GET
+
+
+
+
+// GET /video
 app.get('/',function(req,res){
-	var data = {
-		"msg" : "Bem-vindo a sua primeira aplicação multi-cloud multi-cluster",
-		"api" : "video-api",
-		"cloud":cloud,
-		"cluster":cluster,
-		"deployment":deployment
-	};
-	res.json(data);
-	console.log(data);
-});
-
-
-
-app.get('/load',function(req,res){
-
-	pool.connect(function (err, client, done) {
-
-	    // Close communication with the database and exit.
-	    var finish = function () {
-	        done();
-	        // process.exit();
-	    };
-
-	    if (err) {
-	        console.error('could not connect to cockroachdb', err);
-	        finish();
-	    }
-	    async.waterfall([
-	            
-	            function (next) {
-	                // Create the 'accounts' table.
-	                client.query('CREATE TABLE files.video ( id SERIAL PRIMARY KEY, VIDEONAME TEXT NOT NULL, AUTHORNAME TEXT NOT NULL, PRICE REAL);', next);
-	            	// client.query('select * from books.book', next);
-	            },
-	            function (results, next) {
-	                // Print out account balances.
-	                client.query("INSERT INTO files.video ( VIDEONAME, AUTHORNAME, PRICE) VALUES ('Vingadores Ultimato', 'Jonathan', 85000.00);", next);
-	            },
-
-	        ],
-	        function (err, results) {
-	            if (err) {
-	                console.error('Error inserting into and selecting from accounts: ', err);
-	                finish();
-	            }
-
-	            console.log('Database loaded:');
-	            
-	            res.json(results);
-    			// console.log(results);
-    			/*
-	            results.rows.forEach(function (row) {
-	                console.log(row);
-	            });
-	            */
-
-	            finish();
-	        });
-	});
-
-
-});
-
-
-
-
-
-
-// GET /book
-app.get('/video',function(req,res){
 	
 
 	pool.connect(function (err, client, done) {
@@ -161,7 +95,7 @@ app.get('/video',function(req,res){
 
 
 // POST /book
-app.post('/video',function(req,res){
+app.post('/',function(req,res){
 
 	var Videoname = req.body.videoname;
 	var Authorname = req.body.authorname;
@@ -212,7 +146,7 @@ app.post('/video',function(req,res){
 // ===================================
 
 // PUT /book
-app.put('/video',function(req,res){
+app.put('/',function(req,res){
 	var Id = req.body.id;
 	var Videoname = req.body.videoname;
 	var Authorname = req.body.authorname;
@@ -265,7 +199,7 @@ app.put('/video',function(req,res){
 // ===================================
 
 // DELETE /book
-app.delete('/video',function(req,res){
+app.delete('/',function(req,res){
 	var Id = req.body.id;
 	var data = {
 		"error":1,
@@ -311,6 +245,6 @@ app.delete('/video',function(req,res){
 	}
 });
 
-app.listen(8000,function(){
-	console.log("video-api online 8000");
+app.listen(80,function(){
+	console.log("video-api online 80");
 });
