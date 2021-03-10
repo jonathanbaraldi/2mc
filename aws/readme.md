@@ -66,12 +66,12 @@ $ aws elbv2 create-target-group --name multicloud --protocol HTTP --port 80 --vp
 	
 	
 # REGISTRAR OS TARGETS  
-$ aws elbv2 register-targets --target-group-arn arn:aws:elasticloadbalancing:us-east-1:984102645395:targetgroup/multicloud/7bec592c3183d340 --targets Id=i-09fb02a8c17226818 Id=i-08bd77040cee1f987 Id=i-09ff89e901bc49769 
+$ aws elbv2 register-targets --target-group-arn arn:aws:elasticloadbalancing:us-east-1:984102645395:targetgroup/multicloud/7bec592c3183d340 --targets Id=i-099beb70dde1f39c7 Id=i-0a59c8bccc490d69d Id=i-0bd40f181c63b74e1 
 
 
-i-09fb02a8c17226818
-i-08bd77040cee1f987
-i-09ff89e901bc49769
+i-099beb70dde1f39c7
+i-0a59c8bccc490d69d
+i-0bd40f181c63b74e1
 
 
 # ARN DO Certificado - arn:aws:acm:us-east-1:984102645395:certificate/fa016001-254f-4127-b51a-61588b15c555

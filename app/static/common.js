@@ -134,7 +134,7 @@ function GetBook() {
                             +"<td>"+item.authorname+"</td>"
                             +"<td>"+item.bookname+"</td>"
                             +"<td>"+item.price+"</td>"
-                            +"<td>   <button class='update' bookid='"+item.id+"'    authorname='"+item.authorname+"'   bookname='"+item.bookname+"'  price='"+item.price+"'  >Atualizar</button>              <button class='delete' bookid='"+item.id+"'    authorname='"+item.authorname+"'   bookname='"+item.bookname+"'  price='"+item.price+"' >Excluir</button>   </td>"
+                            +"<td>   <button class='update' book_id='"+item.id+"'    book_authorname='"+item.authorname+"'   bookname='"+item.bookname+"'  book_price='"+item.price+"'  >Atualizar</button>              <button class='delete' book_id='"+item.id+"'    book_authorname='"+item.authorname+"'   bookname='"+item.bookname+"'  book_price='"+item.price+"' >Excluir</button>   </td>"
 
                         +"</tr>";
                 
@@ -260,7 +260,7 @@ function GetSong() {
                             +"<td>"+item.authorname+"</td>"
                             +"<td>"+item.songname+"</td>"
                             +"<td>"+item.price+"</td>"
-                            +"<td>   <button class='update' songid='"+item.id+"'    authorname='"+item.authorname+"'   songname='"+item.songname+"'  price='"+item.price+"'  >Atualizar</button>              <button class='delete' songid='"+item.id+"'    authorname='"+item.authorname+"'   songname='"+item.songname+"'  price='"+item.price+"' >Excluir</button>   </td>"
+                            +"<td>   <button class='update' song_id='"+item.id+"'    song_authorname='"+item.authorname+"'   songname='"+item.songname+"'  song_price='"+item.price+"'  >Atualizar</button>              <button class='delete' song_id='"+item.id+"'    song_authorname='"+item.authorname+"'   songname='"+item.songname+"'  song_price='"+item.price+"' >Excluir</button>   </td>"
 
                         +"</tr>";
                 
@@ -285,9 +285,9 @@ function GetSong() {
 // POST
 function PostVideo() {
     // id = $('input.id').val();
-    authorname = $('input.song_authorname').val();
-    songname = $('input.songname').val();
-    price = $('input.song_price').val();
+    authorname = $('input.video_authorname').val();
+    songname = $('input.videoname').val();
+    price = $('input.video_price').val();
 
     data = {
         'authorname' : authorname,
@@ -297,7 +297,7 @@ function PostVideo() {
 
     $.ajax({
         type: 'POST',
-        url: urlSong,
+        url: urlVideo,
         data: data,
         dataType: 'json',
         success: function(json) {
@@ -314,21 +314,21 @@ function PostVideo() {
 // POST
 function PutVideo() {
     
-    id = $('input.song_id').val();
-    authorname = $('input.song_authorname').val();
-    songname = $('input.songname').val();
-    price = $('input.song_price').val();
+    id = $('input.video_id').val();
+    authorname = $('input.video_authorname').val();
+    songname = $('input.videoname').val();
+    price = $('input.video_price').val();
 
     data = {
         'id': id, 
         'authorname' : authorname,
-        'songname' : songname,
+        'videoname' : videoname,
         'price': price
     };
 
     $.ajax({
         type: 'PUT',
-        url: urlSong,
+        url: urlVideo,
         data: data,
         dataType: 'json',
         success: function(json) {
@@ -345,7 +345,7 @@ function PutVideo() {
 
 function DeleteVideo() {
     
-    id = $('input.song_id').val();
+    id = $('input.video_id').val();
 
     data = {
         'id': id
@@ -353,7 +353,7 @@ function DeleteVideo() {
 
     $.ajax({
         type: 'DELETE',
-        url: urlSong,
+        url: urlVideo,
         data: data,
         dataType: 'json',
         success: function(json) {
@@ -371,7 +371,7 @@ function GetVideo() {
 
     $.ajax({
         type: 'GET',
-        url: urlSong,
+        url: urlVideo,
         dataType: 'json',
         success: function(json) {
             console.log(json);
@@ -388,11 +388,11 @@ function GetVideo() {
                             +"<td>"+item.authorname+"</td>"
                             +"<td>"+item.songname+"</td>"
                             +"<td>"+item.price+"</td>"
-                            +"<td>   <button class='update' songid='"+item.id+"'    authorname='"+item.authorname+"'   songname='"+item.songname+"'  price='"+item.price+"'  >Atualizar</button>              <button class='delete' songid='"+item.id+"'    authorname='"+item.authorname+"'   songname='"+item.songname+"'  price='"+item.price+"' >Excluir</button>   </td>"
+                            +"<td>   <button class='update' song_id='"+item.id+"'    song_authorname='"+item.authorname+"'   songname='"+item.songname+"'  song_price='"+item.price+"'  >Atualizar</button>              <button class='delete' song_id='"+item.id+"'    song_authorname='"+item.authorname+"'   songname='"+item.songname+"'  song_price='"+item.price+"' >Excluir</button>   </td>"
 
                         +"</tr>";
                 
-                $('table#song tbody').append(linha);
+                $('table#video tbody').append(linha);
 
 
             });
