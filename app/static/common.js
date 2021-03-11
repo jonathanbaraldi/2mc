@@ -386,9 +386,9 @@ function GetVideo() {
                 linha = "<tr>"
                             +"<td class='video_id'>"+item.id+"</td>"
                             +"<td>"+item.authorname+"</td>"
-                            +"<td>"+item.songname+"</td>"
+                            +"<td>"+item.videoname+"</td>"
                             +"<td>"+item.price+"</td>"
-                            +"<td>   <button class='update' song_id='"+item.id+"'    song_authorname='"+item.authorname+"'   songname='"+item.songname+"'  song_price='"+item.price+"'  >Atualizar</button>              <button class='delete' song_id='"+item.id+"'    song_authorname='"+item.authorname+"'   songname='"+item.songname+"'  song_price='"+item.price+"' >Excluir</button>   </td>"
+                            +"<td>   <button class='update' video_id='"+item.id+"'    video_authorname='"+item.authorname+"'   videoname='"+item.videoname+"'  video_price='"+item.price+"'  >Atualizar</button>              <button class='delete' video_id='"+item.id+"'    video_authorname='"+item.authorname+"'   videoname='"+item.videoname+"'  video_price='"+item.price+"' >Excluir</button>   </td>"
 
                         +"</tr>";
                 
