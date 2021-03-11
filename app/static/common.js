@@ -613,10 +613,10 @@ $(document).ready(function(){
         
         if ( $('input.video_id').val()==="" ) {
             console.log("NOVO");
-            PostSong();
+            PostVideo();
         } else {
             console.log("ATUALIZAR");
-            PutSong();
+            PutVideo();
         }            
 
     });

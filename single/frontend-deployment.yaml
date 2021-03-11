@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: 2mc-frontend
-        image: jonathanbaraldi/static-api:dev5
+        image: jonathanbaraldi/static-api:dev6
 
         volumeMounts:
         - name: config-volume
