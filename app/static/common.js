@@ -256,7 +256,7 @@ function GetSong() {
                 
                 console.log(item.songname);
                 linha = "<tr>"
-                            +"<td class='id'>"+item.id+"</td>"
+                            +"<td class='song_id'>"+item.id+"</td>"
                             +"<td>"+item.authorname+"</td>"
                             +"<td>"+item.songname+"</td>"
                             +"<td>"+item.price+"</td>"
@@ -375,16 +375,16 @@ function GetVideo() {
         dataType: 'json',
         success: function(json) {
             console.log(json);
-            Songs = json.Songs;
+            Videos = json.Videos;
             
             // total = "Total: "+json.Total;
             // $('h3').text(total);
 
-            $.each(Songs, function(i, item){
+            $.each(Videos, function(i, item){
                 
                 console.log(item.songname);
                 linha = "<tr>"
-                            +"<td class='id'>"+item.id+"</td>"
+                            +"<td class='video_id'>"+item.id+"</td>"
                             +"<td>"+item.authorname+"</td>"
                             +"<td>"+item.songname+"</td>"
                             +"<td>"+item.price+"</td>"
