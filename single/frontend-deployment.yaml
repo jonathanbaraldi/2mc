@@ -8,7 +8,7 @@ metadata:
     allow.http: "false"
     application: 2mc-frontend
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       application: 2mc-frontend

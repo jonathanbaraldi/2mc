@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: api-video
-        image: jonathanbaraldi/api-video:dev
+        image: jonathanbaraldi/api-video:dev2
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
