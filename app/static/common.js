@@ -286,12 +286,12 @@ function GetSong() {
 function PostVideo() {
     // id = $('input.id').val();
     authorname = $('input.video_authorname').val();
-    songname = $('input.videoname').val();
+    videoname = $('input.videoname').val();
     price = $('input.video_price').val();
 
     data = {
         'authorname' : authorname,
-        'songname' : songname,
+        'videoname' : videoname,
         'price': price
     };
 
