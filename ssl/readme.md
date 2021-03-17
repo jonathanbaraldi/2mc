@@ -3,6 +3,7 @@
 # CERTIFICADO
 
 *.dev-ops-ninja.com* 
+
 *.multicloud-multicluster.ml*
 
 *devops-ninja.ml*

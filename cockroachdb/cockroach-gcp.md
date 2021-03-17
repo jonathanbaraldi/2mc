@@ -59,11 +59,6 @@ CREATE DATABASE books;
 
 
 
-
-
-
-
-
 ```sh
 
 # Adding a named port to the instance group
@@ -80,9 +75,6 @@ $ gcloud compute firewall-rules create fw-allow-health-check \
     --source-ranges=130.211.0.0/22,35.191.0.0/16 \
     --target-tags=allow-health-check \
     --rules=tcp:80
-
-
-
 
 
 

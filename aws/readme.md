@@ -1,6 +1,5 @@
 
 ```sh 
-
 #!/bin/bash
 curl https://releases.rancher.com/install-docker/19.03.sh | sh
 
@@ -9,23 +8,10 @@ curl https://releases.rancher.com/install-docker/19.03.sh | sh
 $ aws ec2 run-instances --image-id ami-0dba2cb6798deb6d8 --count 1 --instance-type t3.medium --key-name devops-ninja --security-group-ids sg-00c9550881117de86 --subnet-id subnet-09c5a4961e6056757 --user-data file://rancher.sh --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=rancherserver}]' 'ResourceType=volume,Tags=[{Key=Name,Value=rancherserver}]' 
 
 
-
 # K8S
 $ aws ec2 run-instances --image-id ami-0dba2cb6798deb6d8 --count 3 --instance-type t3.large --key-name devops-ninja --security-group-ids sg-00c9550881117de86 --subnet-id subnet-09c5a4961e6056757 --user-data file://k8s.sh   --block-device-mapping "[ { \"DeviceName\": \"/dev/sda1\", \"Ebs\": { \"VolumeSize\": 70 } } ]" --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=k8s}]' 'ResourceType=volume,Tags=[{Key=Name,Value=k8s}]'     
 
 ```
-
-
-
-
-
-
-ARN do certificado
-
-arn:aws:acm:us-east-1:984102645395:certificate/752f36c0-4437-4fc7-989f-04a189c944ee
-
-
-
 
 
 
@@ -95,16 +81,9 @@ $ aws elbv2 describe-listeners --listener-arns arn:aws:elasticloadbalancing:us-e
 ```
 
 
-107.22.102.134
-75.101.222.255
-
-34.120.93.126
-
-
-
 # alterar a rota dos odminios para o Rancher e para o ELB
 
-INstalar Longhonr e Traefik, configurando
+INstalar Longhonr e Traefik, mostrando como se configura.
 
 
 

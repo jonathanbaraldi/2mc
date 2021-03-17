@@ -50,69 +50,6 @@ app.use(function(req, res, next) {
 
 
 
-/*
-
-
-// GET
-app.get('/',function(req,res){
-	var data = {
-		"msg" : "Bem-vindo a sua primeira aplicação multi-cloud multi-cluster",
-		"api" : "book-api",
-		"cloud":cloud,
-		"cluster":cluster,
-		"deployment":deployment
-	};
-	res.json(data);
-	console.log(data);
-});
-
-
-app.get('/load',function(req,res){
-
-	pool.connect(function (err, client, done) {
-
-	    // Close communication with the database and exit.
-	    var finish = function () {
-	        done();
-	        // process.exit();
-	    };
-
-	    if (err) {
-	        console.error('could not connect to cockroachdb', err);
-	        finish();
-	    }
-	    async.waterfall([
-	            
-	            function (next) {
-	                // Create the 'accounts' table.
-	                client.query('CREATE TABLE files.book ( id SERIAL PRIMARY KEY, BOOKNAME TEXT NOT NULL, AUTHORNAME TEXT NOT NULL, PRICE REAL);', next);
-	            	// client.query('select * from books.book', next);
-	            },
-	            function (results, next) {
-	                // Print out account balances.
-	                client.query("INSERT INTO files.book ( BOOKNAME, AUTHORNAME, PRICE) VALUES ('BookJones', 'Jonathan', 85000.00);", next);
-	            },
-
-	        ],
-	        function (err, results) {
-	            if (err) {
-	                console.error('Error inserting into and selecting from accounts: ', err);
-	                finish();
-	            }
-
-	            console.log('Database loaded:');
-	            
-	            res.json(results);
-    			// console.log(results);
-	            finish();
-	        });
-	});
-
-});
-
-*/
-
-
 
 // GET /book
 app.get('/',function(req,res){

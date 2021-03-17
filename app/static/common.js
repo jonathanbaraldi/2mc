@@ -2,30 +2,11 @@
 urlSong = api + SongPath; // ELB URL
 urlBook = api + BookPath; // ELB URL
 urlVideo = api + VideoPath; // ELB URL
-//    api.rancher.dev-ops-ninja.com
-
 
 
 // ===================================================================
 // ===================================================================
 // ===================================================================
-
-/*
-<input type="text" class="book_id" />
-
-<label>Author</label>
-<input type="text" class="book_authorname" />
-<br/>
-
-<label>BookName</label>
-<input type="text" class="bookname" />
-<br/>
-
-<label>Price</label>
-<input type="text" class="book_price" />
-*/
-
-
 
 
 // POST
