@@ -1,5 +1,37 @@
 
 
+
+
+https://www.udemy.com/course/devops-mao-na-massa-docker-kubernetes-rancher/
+							DevOps Ninja: Docker, Kubernetes e Rancher
+
+							devops-ninja-multicloud-multicluster-k8s-rancher-traefik-cockroachdb
+
+							devops-ninja-multicloud-multicluster-k8s-rancher-traefik-cockroachdb
+
+							DevOpsNinja:Multicloud+Multicluster
+
+
+- Colocar uma bandeira na frente do curso para diferenciar ingles de portugues.
+
+
+ENGLISH
+	DevOps Ninja: Multicloud+Multicluster K8S+Traefik+Rancher
+	https://github.com/jonathanbaraldi/devops-ninja-multicloud-multicluster-en
+
+
+PORTUGUESE
+	DevOps Ninja: Multicloud+Multicluster K8S+Rancher+Traefik
+	https://github.com/jonathanbaraldi/devops-ninja-multicloud-multicluster-pt
+
+
+- Definir o nome no repositório no GIT
+
+- Revisar e finalizar a documentação e os textos e tudo mais, dar uma revisada geral.
+- 
+
+- Fazer o distributed deployment
+
 - Colocar imagens dos arquivos na parte estática, e tirar a % dos objetos.
 
 - Colocar liveness
@@ -7,8 +39,6 @@
 - limites
 
 # ================================================================================================
-
-
 
 
 
@@ -25,7 +55,6 @@
 	- Conhecimento sobre kubernetes
 	- Conhecimento sobre desenvolvimento de software
 	- Conhecimento sobre inraestrutura
-	- 
 
 
 SECOES
@@ -35,17 +64,21 @@ SECOES
 	Sobre o que o curso irá abordar, pré-requisitos, quem sou eu, etc.pegar do outro curso
 
 
-
-
 # REQUISITOS
 
 Mostrar a arquitetura
+
+## NUVENS
+	Falar sobre as nuvens escolhidas, a AWS e o Google Cloud.
+
+## RECURSOS
+
+	Falar um pouco sobre os recursos que iremos utilzir, detalhar eles.
 
 2 nuvens - Preferência AWS e GCP || 2 datacenters, ou algo que simule 2 provedores distintos.
 2 ou mais domínios - DNS
 4 maquinas virtuais  na primeira nuvem
 3 manquinas virtuais na segunda nuvem
-
 
 	# Explicar o que NÃO iremos fazer:
 	
@@ -60,22 +93,33 @@ Explicar exatamente o que iremos fazer usando 2 nuvens e 2 cluster's kubernetes
 E quais os tipos de aplicações que iremos usar.
 
 
-## CONCEITO
+# CONCEITO
+
+## MultiCloud - Porquê multicloud?
 	
 - Explicar sobre o conceito multi-cloud multi-cluster
 Colocar os tópicos aqui dentro que vou trabalhar com aqueles links que juntei
 fazer pelo menos 3 aulas
 
+## Multicluster - Porque multi-cluster? 
+
 - Colocar o texto e as imagens para aqui....
 
 
+# ARQUITETURA
+
+## Clouds
 
 
+## Kubernetes
 
 
+## Aplicação
+	- Frontend
+	- backend
+	- database
 
 
-## ARQUITETURA
 
 	Iremos falar sobre as Clouds
 
@@ -85,14 +129,7 @@ fazer pelo menos 3 aulas
 
 	FALAR SOBRE A PARTE DE REDE, CRIAÇÃO DE VPC.
 
-
-# Explicar sobre a arquitetura de infraestrutura
-
-
-	Desenho
-# Explicar sobre a arquitetura da aplicação
-
-	Desenho da arquitetura de aplicação
+	E iremos falar sobre a arquitetura da aplicação. 
 
 
 ## APLICACAO
@@ -168,8 +205,6 @@ fazer o código e colocar na pastinha do gcp
 
 	Fazer o deployment da aplicação modelo distribuído, mostrar a configuração e tudo mais
 	- Trocando o banco de dados para instância
-
-
 
 
 ## REVISAO
