@@ -1,18 +1,9 @@
 
 
 
-
-https://www.udemy.com/course/devops-mao-na-massa-docker-kubernetes-rancher/
-							DevOps Ninja: Docker, Kubernetes e Rancher
-
-							devops-ninja-multicloud-multicluster-k8s-rancher-traefik-cockroachdb
-
-							devops-ninja-multicloud-multicluster-k8s-rancher-traefik-cockroachdb
-
-							DevOpsNinja:Multicloud+Multicluster
-
-
-- Colocar uma bandeira na frente do curso para diferenciar ingles de portugues.
+enviar o link ou email dos top:
+- mandar os curriculos
+- muller maro - 
 
 
 ENGLISH
@@ -25,10 +16,22 @@ PORTUGUESE
 	https://github.com/jonathanbaraldi/devops-ninja-multicloud-multicluster-pt
 
 
-- Definir o nome no repositório no GIT
+OK - Definir o nome no repositório no GIT
+- Colocar os logos:
+	- Rancher
+	- Kubernetes
+	- AWS
+	- Nginx
+	- NODEJS
+	- CockroachDB
+	- GCP
+	- Traefik
+	- Longhorn
+	- Fleet
+	- Github
+	- Grafana+Prometheus
 
 - Revisar e finalizar a documentação e os textos e tudo mais, dar uma revisada geral.
-- 
 
 - Fazer o distributed deployment
 
@@ -42,45 +45,37 @@ PORTUGUESE
 
 
 
-# Introdução ao curso
+1. Introdução ao curso
 
+	1. Conhecendo o curso e o instrutor
 
-## Como se achar, mostrar repositório , ordem das pastas o que cada uma irá conter...
+		Sobre o que iremos falar, 
 
-	Sobre o que iremos falar, 
+		Pré-requisitos - Curso anterior
 
-	Pré-requisitos - Curso anterior
+		- Conhecimento sobre containers
+		- Conhecimento sobre kubernetes
+		- Conhecimento sobre desenvolvimento de software
+		- Conhecimento sobre inraestrutura
 
-	- Conhecimento sobre containers
-	- Conhecimento sobre kubernetes
-	- Conhecimento sobre desenvolvimento de software
-	- Conhecimento sobre inraestrutura
+		Sobre o que o curso irá abordar, pré-requisitos, quem sou eu, etc.pegar do outro curso
 
+		1. Requisitos
+		Mostrar a arquitetura
 
-SECOES
+	1. Nuvens
+		Falar sobre as nuvens escolhidas, a AWS e o Google Cloud.
 
-## INTRODUCAO
-
-	Sobre o que o curso irá abordar, pré-requisitos, quem sou eu, etc.pegar do outro curso
-
-
-# REQUISITOS
-
-Mostrar a arquitetura
-
-## NUVENS
-	Falar sobre as nuvens escolhidas, a AWS e o Google Cloud.
-
-## RECURSOS
+	1. Recursos
 
 	Falar um pouco sobre os recursos que iremos utilzir, detalhar eles.
 
-2 nuvens - Preferência AWS e GCP || 2 datacenters, ou algo que simule 2 provedores distintos.
-2 ou mais domínios - DNS
-4 maquinas virtuais  na primeira nuvem
-3 manquinas virtuais na segunda nuvem
+	2 nuvens - Preferência AWS e GCP || 2 datacenters, ou algo que simule 2 provedores distintos.
+	2 ou mais domínios - DNS
+	4 maquinas virtuais  na primeira nuvem
+	3 manquinas virtuais na segunda nuvem
 
-	# Explicar o que NÃO iremos fazer:
+	**Explicar o que NÃO iremos fazer:**
 	
 	- ServiceMesh multi-cluster
 	- armazenamento de objetos - distribuído
@@ -88,37 +83,36 @@ Mostrar a arquitetura
 	- Não iremos colocar a infra no Terraform ou Ansible ou qualquer coisa do tipo.
 	Pipeline automatizado para a aplicação
 
+	Explicar exatamente o que iremos fazer usando 2 nuvens e 2 cluster's kubernetes
+	E quais os tipos de aplicações que iremos usar.
 
-Explicar exatamente o que iremos fazer usando 2 nuvens e 2 cluster's kubernetes
-E quais os tipos de aplicações que iremos usar.
 
 
-# CONCEITO
+2. Conceito
 
-## MultiCloud - Porquê multicloud?
+	2. MultiCloud - Porquê multicloud?
 	
-- Explicar sobre o conceito multi-cloud multi-cluster
-Colocar os tópicos aqui dentro que vou trabalhar com aqueles links que juntei
-fazer pelo menos 3 aulas
-
-## Multicluster - Porque multi-cluster? 
-
-- Colocar o texto e as imagens para aqui....
+	- Explicar sobre o conceito multi-cloud multi-cluster
+	Colocar os tópicos aqui dentro que vou trabalhar com aqueles links que juntei
 
 
-# ARQUITETURA
+	2. Multicluster - Porque multi-cluster? 
 
-## Clouds
-
-
-## Kubernetes
+	- Colocar o texto e as imagens para aqui....
 
 
-## Aplicação
+3. ARQUITETURA
+
+	3. Clouds
+
+
+	3. Kubernetes
+
+
+	3. Aplicação
 	- Frontend
 	- backend
 	- database
-
 
 
 	Iremos falar sobre as Clouds
@@ -132,21 +126,17 @@ fazer pelo menos 3 aulas
 	E iremos falar sobre a arquitetura da aplicação. 
 
 
-## APLICACAO
+	# Explicar Sobre o código que iremos rodar
+	- frontend
+	- backend
+	- database
 
-# Explicar Sobre o código que iremos rodar
-- frontend
-- backend
-- database
-
-
-# Explicar os deployments - Single
-- Single
-- Distributed
+	# Explicar os deployments - Single
+	- Single
+	- Distributed
 
 
-
-## CLOUD1 - AWS
+4. CLOUD1 - AWS + Kubernetes + Rancher
 - Fazer o codigo e colocar na pastinha da aws
 
 	Deployment da infra 
@@ -176,8 +166,8 @@ fazer pelo menos 3 aulas
 
 
 
-## CLOUD2 - GCP
-fazer o código e colocar na pastinha do gcp
+5. CLOUD2 - GCP + Kubernetes
+	fazer o código e colocar na pastinha do gcp
 	
 	Deployment da infra 
 		- loadbalacner
@@ -191,23 +181,22 @@ fazer o código e colocar na pastinha do gcp
 		us-east1	default		10.142.0.0/20 - GATEWAY - 10.142.0.1	
 
 
-# Tipos de deployment
+6. Aplicação
 
-
-## SIMPLES(SINGLE) DEPLOYMENT
+	6. SINGLE DEPLOYMENT
 
 	Fazer o deployment da aplicação modelo single, mostrar a configuração e tudo mais
 
 	SIMULACAO DE FALHAS EM CLUSTER LOCAL
 
 
-## DISTRIBUÍDO(DISTRIBUTED)DEPLOYMENT
+	6. DISTRIBUÍDO(DISTRIBUTED)DEPLOYMENT
 
 	Fazer o deployment da aplicação modelo distribuído, mostrar a configuração e tudo mais
 	- Trocando o banco de dados para instância
 
 
-## REVISAO
+7. REVISAO
 
 Revisar todos os itens do curso e agradecer, falar sobre os pontos a serem melhorados ainda, e que estarei atualizando o curso para que esteja sempre atualizado.
 

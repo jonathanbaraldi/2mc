@@ -1,32 +1,28 @@
 ![MultiCloud](multicloud3.jpg)
 
+# MULTI-CLOUD
 
-# MULTI-CLOUD ???
+Há razões extremamente convincentes para que o multicloud esteja se mostrando o jogo final. Ser multicloud oferece grande agilidade e economia com sua flexibilidade para separar diferentes cargas de trabalho em diferentes ambientes, dependendo de seus requisitos específicos. Isso inclui uma estratégia local atraente e economicamente comparável para a nuvem e abre novas oportunidades para inovação e implementação acelerada de novos serviços para os clientes. Multicloud também significa que as empresas podem evitar o aprisionamento do fornecedor e a dependência de um único provedor. Embora as preocupações persistentes sobre multicloud sejam compreensíveis, uma série de tecnologias mais recentes como o Kubernetes e a consolidação crescente dos tempos de execução do contêiner estão facilitando a vida das empresas que precisam transformar multicloud em sua estratégia de fato.
 
-Aqui estão nossos pensamentos. Há razões extremamente convincentes para que a nuvem múltipla esteja se mostrando o jogo final correto. A nuvem múltipla oferece grande agilidade e economia com sua flexibilidade para separar diferentes cargas de trabalho em diferentes ambientes, dependendo de seus requisitos específicos. Isso inclui uma estratégia local atraente e economicamente comparável para a nuvem e abre novas oportunidades para inovação e implementação acelerada de novos serviços para os clientes. Multi-nuvem também significa que as empresas podem evitar o aprisionamento do fornecedor e a dependência de um único provedor. Embora as preocupações persistentes sobre a nuvem múltipla sejam compreensíveis, uma série de tecnologias mais recentes como o Kubernetes e a consolidação crescente dos tempos de execução do contêiner estão facilitando a vida das empresas que precisam transformar a nuvem múltipla em sua estratégia de fato.
+O que alguns especialistas dizem:
 
-O que ouvimos de outros especialistas:
 
-Sean Michael Kerner, jornalista freelance de tecnologia
-
-“A Terra é plana? A Terra é o centro do sistema solar? A realidade, claro, é que o universo é um lugar grande e a Terra é apenas uma pequena parte dele. Da mesma forma, nenhuma nuvem deve ser o centro de qualquer estratégia de dados corporativos por conta própria. O pensamento de que existe “apenas uma nuvem verdadeira” é um tipo de fanatismo que pode ter consequências não triviais. Ele cria um único ponto de falha, dependências e bloqueio que uma organização pode não querer.
-
-Multi-nuvem é uma questão de escolha, é sobre a capacidade de implantar cargas de trabalho em qualquer número de combinações diferentes de provedores de nuvem pública e local. Com as várias nuvens, vem a promessa de agilidade e liberdade e, no final do dia, quem não quer que seus dados sejam gratuitos? ”
-
-James Sanders, TechRepublic
+*James Sanders, TechRepublic*
 
 Multi-nuvem capacita os desenvolvedores a escolher os melhores componentes para seus casos de uso - imagine uma situação em que você deseja usar o AWS Lambda para tratamento de eventos voltados para o cliente, mas deseja pegar esses registros de eventos e analisá-los na análise de dados do Google Cloud Platform Serviços. Esses tipos de implantações em várias nuvens permitem que os desenvolvedores aproveitem os pontos fortes em diferentes plataformas de nuvem, bem como o ecossistema maior de integrações de terceiros para AWS Lambda que ainda não chegaram ao GCP Cloud Functions. Ao ter uma visão ativa do que está disponível - não apenas quais recursos uma plataforma de nuvem pública oferece - você mantém mais propriedade de sua plataforma.
 
-Carl Brooks, 451 Research
+
+*Carl Brooks, 451 Research*
 
 “As empresas devem usar uma estratégia de nuvem múltipla porque esta abordagem oferece uma gama de opções para alavancar com eficiência os benefícios de diferentes plataformas. Por exemplo, um aplicativo legado preso em uma pilha LAMP tradicional é uma oportunidade perdida se o resultado pudesse ser alcançado com mais eficiência em uma nuvem pública. Da mesma forma, as nuvens privadas oferecem seu próprio conjunto de vantagens (recursos dedicados, customização), combinadas com a flexibilidade e agilidade da Infraestrutura como Serviço. Combinar e combinar diferentes plataformas e serviços é facilmente alcançável graças às APIs e à virtualização generalizada, e só conseguirá ainda mais. A nuvem múltipla também é uma parte da TI que se normaliza rapidamente. Hoje, cerca de dois terços das empresas têm mais de um provedor ou plataforma IaaS, e o mesmo número considera que uma estratégia de TI híbrida unificada é o melhor caminho a seguir para cargas de trabalho legadas e nativas da nuvem. As empresas que não conseguirem modernizar sua TI em uma estrutura multi-nuvem / híbrida serão deixadas para trás, pura e simplesmente. ”
 
-Dale Vile, Freeform Dynamics
 
+*Dale Vile, Freeform Dynamics*
 
 O uso de várias plataformas e serviços em nuvem é um fato da vida para a maioria das empresas convencionais, mas o acúmulo de nuvens de maneira ad-hoc leva a uma fragmentação cara e arriscada. Torna-se cada vez mais difícil controlar as despesas gerais, gerenciar a segurança e atender aos requisitos de negócios e operacionais de maneira mais geral. É por isso que uma abordagem de várias nuvens mais coordenada é tão importante. Com a combinação certa de estratégia, processo, disciplina e tecnologia de suporte, você pode lidar com muitos dos desafios e, ao mesmo tempo, desfrutar do tipo de escolha e flexibilidade necessária no ambiente digital em constante mudança de hoje. ”
 
-Devan Adams, IHS Markit
+
+*Devan Adams, IHS Markit*
 
 “O uso de nuvens múltiplas é fundamental para organizações que desejam evitar o aprisionamento do provedor de serviços em nuvem (CSP). Uma estratégia de nuvem múltipla permite que as empresas usem os melhores serviços em nuvem de uma infinidade de provedores de serviços no mercado, por exemplo, computação da AWS, serviços de contêineres da nuvem do Google e SaaS da SAP.
 
@@ -34,13 +30,13 @@ O uso de várias nuvens é uma tendência de crescimento rápido que destacamos 
 
 Não usar uma abordagem de várias nuvens torna as empresas totalmente dependentes de um CSP para todos os seus serviços relacionados à nuvem, alguns dos quais podem não oferecer o melhor valor ou serviço. Além disso, as organizações que não usam serviços em nuvem de mais de um provedor são limitadas no avanço de seus serviços, à medida que novas tecnologias e tendências ocorrem no mercado, as empresas podem atrasar o uso de novas ferramentas se os CSP que usam forem adotantes lentos. ”
 
-Jean Bozman, Hurwitz & Associates
+
+*Jean Bozman, Hurwitz & Associates*
 
 “Existem muitos caminhos para várias nuvens - não apenas um movimento ousado para forjar uma nova estratégia de várias nuvens. A maioria das grandes empresas tem infraestrutura de computador local que é o resultado de muitas ondas de investimentos e implantações ao longo de décadas de gastos. A jornada para a nuvem múltipla está evoluindo, à medida que as empresas estão adotando uma variedade de serviços em nuvem para atender a desafios de negócios específicos, enquanto reduzem seus custos de TI para data centers locais. Em grandes empresas, algumas unidades de negócios podem ter optado por hospedar novamente um grande número de sistemas no AWS da Amazon ou no Microsoft Azure. Outros podem ter escolhido o Google Cloud Platform (GCP) por sua experiência em AI / ML por meio de análises baseadas no TensorFlow. Ao adotar uma abordagem de várias nuvens, os clientes corporativos ganham escolha, flexibilidade operacional - e a liberdade de escolher serviços CSP para a combinação ideal de negócios, segurança e considerações de custo.
 
 
-
-![MultiCloud](http://url/to/img.png)
+![MultiCloud](multicloud2.jpg)
 
 
 ## Por que as organizações escolhem uma estratégia multicloud
@@ -58,8 +54,6 @@ As decisões de computação em várias nuvens geralmente baseiam-se em três co
 
 Os benefícios do multicloud citados pelos clientes incluem melhor recuperação de desastres e migração mais fácil para alguns dados e aplicativos.
 
-Leia mais: 5 perguntas para responder ao construir uma estratégia de nuvem
-
 Por que escolher um único provedor?
 As exceções mais comuns à tendência multicloud são as organizações que concentram seus investimentos em uma pilha de tecnologia de um único fornecedor. Alguns acham difícil justificar o esforço e o custo de trabalhar com vários provedores de nuvem.
 
@@ -67,15 +61,14 @@ As exceções mais comuns à tendência multicloud são as organizações que co
 
 “Existem muitas nuances entre as plataformas, e tentar construir serviços em mais de uma simultaneamente é um desafio”, diz ele. “Começar devagar também permite que a equipe interna desenvolva suas habilidades e aprenda a gerenciar a nuvem.”
 
-
-
-
+![MultiCloud](multicloud4.jpg)
 
 ## 10 benefícios em ser multi-cloud
 
-Este artigo lista os 10 principais benefícios comerciais da nuvem múltipla. Isso o ajudará a entender os fundamentos dos aplicativos de nuvem múltipla para que você também possa obter uma distribuição ideal de ativos em seus ambientes de hospedagem em nuvem. Vamos dar uma olhada.
+Vou listar abaixo os 10 principais benefícios comerciais em ser mutlcloud. Isso o ajudará a entender os fundamentos das aplicações multicloud para que você também possa obter uma distribuição ideal de ativos em seus ambientes cloud. 
 
-### 1. Capacidade de encontrar os melhores provedores de nuvem múltipla da classe
+
+### 1. Capacidade de encontrar os melhores provedores de nuvem
 Ao incorporar várias nuvens à estratégia de TI de uma empresa, os administradores podem alinhar seus requisitos de negócios com os melhores provedores de hospedagem em nuvem para cada tarefa individual. Por exemplo, você pode selecionar um provedor de nuvem com base em sua alta velocidade de upload, enquanto outro provedor pode garantir termos de Acordo de Nível de Serviço mais favoráveis. Por ter várias opções, os usuários podem atingir um alto nível de agilidade e combinar cada parte de seus negócios com os termos de configuração e execução de um provedor específico. Em vez de dobrar seus processos para acomodar os requisitos de um fornecedor, você tem a liberdade de acessar várias opções, cada uma oferecendo a melhor correspondência para diferentes partes do seu negócio.
 
 ### 2. Preços competitivos
@@ -103,14 +96,11 @@ a interconexão de várias nuvens permite que você crie uma infraestrutura de a
 O gerenciamento de riscos é outra grande vantagem que vem com a adoção de uma estratégia de várias nuvens. Se acontecer de um fornecedor ter um colapso da infraestrutura ou um ataque, um usuário de várias nuvens pode mudar rapidamente para outro provedor de serviços de nuvem ou fazer backup para uma nuvem privada. provedores de nuvem múltipla podem reduzir o risco empregando sistemas redundantes e independentes que oferecem mecanismos de autenticação robustos, teste de vulnerabilidade e consolidação de ativos de API. Mas, em última análise, a única maneira de garantir um sistema de gerenciamento de risco robusto é implementar uma abordagem de segurança em várias camadas.
 
 
-
 ### 9. Evitando o aprisionamento do fornecedor
 Muitas empresas estão familiarizadas com a dependência de fornecedores por lidar com empresas corporativas tradicionais como a Oracle. Quando as organizações entram em um relacionamento com um provedor de serviços de nuvem sem avaliar cuidadosamente as regras relacionadas a custos e add-ons primeiro, elas percebem rapidamente que certos termos e condições não podem ser alterados. Avaliando cuidadosamente as expectativas e potenciais armadilhas e tendo uma forte posição de negociação que facilita a troca de um provedor de nuvem para outro, as empresas podem aproveitar o poder da nuvem e obter o máximo valor de sua parceria com qualquer provedor de serviços em nuvem .
 
 ### 10. Impulsiona a inovação
 Por meio da automação do processo de gerenciamento de várias nuvens, as empresas podem coordenar com eficácia cargas de trabalho distintas, gerenciar fluxos de trabalho híbridos e integrar os processos de DevOps para impulsionar a inovação. A automação garante uma orquestração eficiente de dados, aplicativos e infraestrutura em vários ambientes de nuvem. Ele expande os recursos de implantação, conectando aplicativos e processos de fluxo de trabalho para fornecer serviços de negócios rapidamente.
-
-
 
 
 # Referências
@@ -120,8 +110,3 @@ https://www.cloudindustryforum.org/content/five-reasons-why-multi-cloud-infrastr
 https://ubuntu.com/blog/why-multi-cloud-has-become-a-must-have-for-enterprises-six-experts-weigh-in
 https://www.gartner.com/smarterwithgartner/why-organizations-choose-a-multicloud-strategy/
 https://www.acronis.com/en-us/articles/top-10-benefits-of-multi-cloud/
-
-
-
-
-
