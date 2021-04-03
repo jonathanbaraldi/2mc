@@ -1,21 +1,58 @@
+# Roteiro
+
+O que iremos fazer?
+
+## Parte 1
+1. Criação de usuário do IAM e permissões
+2. Criação da instância do RancherServer pela aws-cli.
+3. Configuração do Rancher.
+4. Configuração do Cluster Kubernetes.
+5. Deployment do cluster pela aws-cli.
+
+## Parte 1
+6. Configuração do Traefik
+7. Configuração do Longhorn
+8. Criação do certificado não válido
+9. Configuração do ELB
+10. Configuração do Route 53
+
+
+Parabéns, com isso temos a primera parte da nossa infraestrutura. 
+Estamos prontos para rodar nossa aplicação.
+
+
+# 1 - Criação de usuário do IAM e permissões e configuração da AWS-CLI
+Baixar e colocar os comandos aqui para configurar no servidor linux no Rancher
+
+
+# 2 - Criação da instância do RancherServer pela aws-cli.
 
 ```sh 
-#!/bin/bash
-curl https://releases.rancher.com/install-docker/19.03.sh | sh
-
 
 # RANCHER SERVER
 $ aws ec2 run-instances --image-id ami-0dba2cb6798deb6d8 --count 1 --instance-type t3.medium --key-name devops-ninja --security-group-ids sg-00c9550881117de86 --subnet-id subnet-09c5a4961e6056757 --user-data file://rancher.sh --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=rancherserver}]' 'ResourceType=volume,Tags=[{Key=Name,Value=rancherserver}]' 
 
+```
 
-# K8S
+
+# 3 - Configuração do Rancher
+Acessar o Rancher e configurar
+
+# 4 - Configuração do Cluster Kubernetes.
+Criar o cluster pelo Rancher e configurar.
+
+# 5 - Deployment do cluster pela aws-cli
+
+```sh
 $ aws ec2 run-instances --image-id ami-0dba2cb6798deb6d8 --count 3 --instance-type t3.large --key-name devops-ninja --security-group-ids sg-00c9550881117de86 --subnet-id subnet-09c5a4961e6056757 --user-data file://k8s.sh   --block-device-mapping "[ { \"DeviceName\": \"/dev/sda1\", \"Ebs\": { \"VolumeSize\": 70 } } ]" --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=k8s}]' 'ResourceType=volume,Tags=[{Key=Name,Value=k8s}]'     
 
 ```
 
 
 
-# TRAEFIK 1.7
+
+
+# 6 - Configuração do Traefik
 
 O Traefik é a aplicação que iremos usar como ingress. Ele irá ficar escutando pelas entradas de DNS que o cluster deve responder. Ele possui um dashboard de  monitoramento e com um resumo de todas as entradas que estão no cluster.
 ```sh
@@ -28,18 +65,36 @@ Agora iremos configurar o DNS pelo qual o Traefik irá responder. No arquivo ui.
 $ kubectl apply -f traefik.yaml
 ```
 
-# INSTALACAO DO CERTIFICADO SSL E DO CERTMANAGER
-
-NA TELA
 
 
 
-# INSTALAÇÃO DO ELB
+# 7 - Configuração do Longhorn
+Pelo console do Rancher
+
+
+# 8 - Criação do certificado
+Criar certificado para nossos dominios:
+
+dev-ops-ninja.com
+
+
+```sh
+> openssl req -new -x509 -keyout cert.pem -out cert.pem -days 365 -nodes
+Country Name (2 letter code) [AU]:DE
+State or Province Name (full name) [Some-State]:Germany
+Locality Name (eg, city) []:nameOfYourCity
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:nameOfYourCompany
+Organizational Unit Name (eg, section) []:nameOfYourDivision
+Common Name (eg, YOUR name) []:*.example.com
+Email Address []:webmaster@example.com
+```
+
+
+# 9 - Configuração do ELB
+
 
 ```sh
 # LOAD BALANCER
-
-# Primeiro criar as instâncias, explicar a rede, ec2, ebs - Na aws e no gcp. 
 
 # !! ESPECIFICAR O SECURITY GROUPS DO LOAD BALANCER
 
@@ -81,25 +136,8 @@ $ aws elbv2 describe-listeners --listener-arns arn:aws:elasticloadbalancing:us-e
 ```
 
 
-# alterar a rota dos odminios para o Rancher e para o ELB
-
-INstalar Longhonr e Traefik, mostrando como se configura.
-
-
-
-
-Criar certificado para nossos dominios:
-
-```sh
-> openssl req -new -x509 -keyout cert.pem -out cert.pem -days 365 -nodes
-Country Name (2 letter code) [AU]:DE
-State or Province Name (full name) [Some-State]:Germany
-Locality Name (eg, city) []:nameOfYourCity
-Organization Name (eg, company) [Internet Widgits Pty Ltd]:nameOfYourCompany
-Organizational Unit Name (eg, section) []:nameOfYourDivision
-Common Name (eg, YOUR name) []:*.example.com
-Email Address []:webmaster@example.com
-```
+# 10 - Configuração do Route 53
+Pelo console da AWS
 
 
 

@@ -1,8 +1,5 @@
 
-
-
-
-# MULTI-CLUSTER ???
+# MULTI-CLUSTER
 
 ## Por quê multi-cluster ???
 
@@ -70,9 +67,6 @@ Das abordagens centradas na rede, todas as abordagens listadas acima requerem a 
 
 
 Um breve resumo de cada uma das abordagens está abaixo:
-
- 
-![alt text](http://url/to/img.png)
 
 ![alt text](single-deployment.png)
 

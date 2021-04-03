@@ -1,56 +1,18 @@
-readme.md
+# Roteiro
 
-https://cloudaffaire.com/how-to-create-a-compute-engine-instance-using-gcloud/
+O que iremos fazer?
 
-# Instanciass
-
-```sh
-$ export IMAGE_FAMILY="debian-10"
-$ export ZONE="us-east1-b"
-$ export INSTANCE_NAME="my-new-instance"
-$ export INSTANCE_TYPE="e2-medium"
-
-
-$ export INSTANCE_NAME="my-new-instance-1"
-$ gcloud compute instances create $INSTANCE_NAME --zone=$ZONE  --machine-type=$INSTANCE_TYPE  --boot-disk-size=120GB  --image-family=centos-7 --image-project=centos-cloud
-
-$ export INSTANCE_NAME="my-new-instance-2"
-$ gcloud compute instances create $INSTANCE_NAME --zone=$ZONE  --machine-type=$INSTANCE_TYPE  --boot-disk-size=120GB  --image-family=centos-7 --image-project=centos-cloud
-
-$ export INSTANCE_NAME="my-new-instance-3"
-$ gcloud compute instances create $INSTANCE_NAME --zone=$ZONE  --machine-type=$INSTANCE_TYPE  --boot-disk-size=120GB  --image-family=centos-7 --image-project=centos-cloud
-
-$ export INSTANCE_NAME="my-new-instance-4"
-$ gcloud compute instances create $INSTANCE_NAME --zone=$ZONE  --machine-type=$INSTANCE_TYPE  --boot-disk-size=120GB  --image-family=centos-7 --image-project=centos-cloud --metadata-from-file startup-script=install.sh
-
-
-
-```
-
-
-
-
-# TRAEFIK 1.7
-
-O Traefik é a aplicação que iremos usar como ingress. Ele irá ficar escutando pelas entradas de DNS que o cluster deve responder. Ele possui um dashboard de  monitoramento e com um resumo de todas as entradas que estão no cluster.
-```sh
-$ kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v1.7/examples/k8s/traefik-rbac.yaml
-$ kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v1.7/examples/k8s/traefik-ds.yaml
-$ kubectl --namespace=kube-system get pods
-```
-Agora iremos configurar o DNS pelo qual o Traefik irá responder. No arquivo ui.yml, localizar a url, e fazer a alteração. Após a alteração feita, iremos rodar o comando abaixo para aplicar o deployment no cluster.
-```sh
-$ kubectl apply -f traefik.yaml
-```
-
-
-
-
-# LoadBalancer
+1. Configuração do Cluster Kubernetes
+2. Configuração do Traefik
+3. Configuração do Longhorn
+4. Criação do certificado não válido
+5. Configuração do ELB
+6. Configuração do DNS
 
 
 https://cloud.google.com/load-balancing/docs/https/ext-https-lb-simple
 
+# 1 - Configuração do Cluster Kubernetes
 ```sh
 # Creating a managed instance group
 $ gcloud compute instance-templates create lb-backend-template \
@@ -68,12 +30,6 @@ $ gcloud compute instance-templates create lb-backend-template \
 $ gcloud compute instance-groups managed create lb-backend-example \
    --template=lb-backend-template --size=3 --zone=us-east1-b
 
-
-
-
-
-
-
 # Adding a named port to the instance group
 $ gcloud compute instance-groups set-named-ports lb-backend-example \
     --named-ports http:80 \
@@ -89,11 +45,51 @@ $ gcloud compute firewall-rules create fw-allow-health-check \
     --target-tags=allow-health-check \
     --rules=tcp:80
 
+```
+
+# 2 - Configuração do Traefik
+
+O Traefik é a aplicação que iremos usar como ingress. Ele irá ficar escutando pelas entradas de DNS que o cluster deve responder. Ele possui um dashboard de  monitoramento e com um resumo de todas as entradas que estão no cluster.
+```sh
+$ kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v1.7/examples/k8s/traefik-rbac.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v1.7/examples/k8s/traefik-ds.yaml
+$ kubectl --namespace=kube-system get pods
+```
+Agora iremos configurar o DNS pelo qual o Traefik irá responder. No arquivo ui.yml, localizar a url, e fazer a alteração. Após a alteração feita, iremos rodar o comando abaixo para aplicar o deployment no cluster.
+```sh
+$ kubectl apply -f traefik.yaml
+```
+
+# 3 - Configuração Longhorn
+
+# 4 -  Criação do certificado não válido
+
+```sh
+$ gcloud compute ssl-certificates create multicloud \
+    --description=multiclou \
+    --domains=multicloud.ml \
+    --global
 
 
+$ gcloud compute ssl-certificates list \
+   --global
 
 
+$ gcloud compute ssl-certificates describe multicloud \
+   --global \
+   --format="get(name,managed.status, managed.domainStatus)"
 
+$ gcloud compute ssl-certificates describe CERTIFICATE_NAME \
+   --global \
+   --format="get(name,managed.status, managed.domainStatus)"
+
+```
+
+
+# 5 - Configuração do ELB
+
+
+```sh 
 
 
 # Reserving an external IP address
@@ -108,7 +104,6 @@ $ gcloud compute addresses describe lb-ipv4-1 \
 
 #  34.120.93.126
 
-
 # SETUP
 
 # Healthcheck
@@ -116,12 +111,6 @@ $ gcloud compute health-checks create http http-basic-check \
 	--port 8080 \
   --request-path /api/providers
     
-# COLOCAR AQUI O CAMINHO :8080 /api/providers para responder no balanceador
-# !!!!!
-# SO FALTA COLOCAR O HTTPS
-
-
-
 # Backend Service
 $ gcloud compute backend-services create web-backend-service \
     --protocol=HTTP \
@@ -141,8 +130,6 @@ $ gcloud compute backend-services add-backend web-backend-service \
 $  gcloud compute url-maps create web-map-https \
     --default-service web-backend-service
 
-
-
 # $ gcloud compute ssl-certificates create www-ssl-cert \
 #         --certificate=certificate-file \
 #         --private-key=private-key-file \
@@ -150,12 +137,11 @@ $  gcloud compute url-maps create web-map-https \
     
 #  nome do certificado que subi - devops-ninja
 
-    
+
 # Criar um http proxy para fazer o  roteamento
 $ gcloud compute target-https-proxies create https-lb-proxy \
     --url-map web-map-https --ssl-certificates devops-ninja
     
-
 # Criar regra global de forwarding 
 $ gcloud compute forwarding-rules create https-content-rule \
     --address=lb-ipv4-1\
@@ -163,33 +149,9 @@ $ gcloud compute forwarding-rules create https-content-rule \
     --target-https-proxy=https-lb-proxy \
     --ports=443
 
-    
-
 ```
 
+# 6 - Configuração do DNS
 
 
 
-
-
-
-# CERTIFICADO
-
-
-gcloud compute ssl-certificates create multicloud \
-    --description=multiclou \
-    --domains=multicloud.ml \
-    --global
-
-
-gcloud compute ssl-certificates list \
-   --global
-
-
-gcloud compute ssl-certificates describe multicloud \
-   --global \
-   --format="get(name,managed.status, managed.domainStatus)"
-
-gcloud compute ssl-certificates describe CERTIFICATE_NAME \
-   --global \
-   --format="get(name,managed.status, managed.domainStatus)"

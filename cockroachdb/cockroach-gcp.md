@@ -47,15 +47,11 @@ cockroach start --insecure --advertise-addr=34.75.222.33   --join=34.75.222.33,3
 cockroach start --insecure --advertise-addr=34.73.14.146   --join=34.75.222.33,34.73.14.146,104.196.65.162 --cache=.25 --max-sql-memory=.25  --background
 cockroach start --insecure --advertise-addr=104.196.65.162 --join=34.75.222.33,34.73.14.146,104.196.65.162 --cache=.25 --max-sql-memory=.25  --background
 
-
-
 cockroach init --insecure
 cockroach sql --insecure
 
 CREATE DATABASE books;
 ```
-
-
 
 
 
@@ -75,8 +71,6 @@ $ gcloud compute firewall-rules create fw-allow-health-check \
     --source-ranges=130.211.0.0/22,35.191.0.0/16 \
     --target-tags=allow-health-check \
     --rules=tcp:80
-
-
 
 
 
@@ -102,7 +96,6 @@ $ gcloud compute backend-services create network-lb-backend-service \
     --health-checks tcp-health-check \
     --health-checks-region us-east1 \
     --region us-east1
-
 
 
 # Add your instance group as the backend to the backend service.

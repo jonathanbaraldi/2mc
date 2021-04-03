@@ -1,4 +1,4 @@
-
+# Roteiro
 
 https://www.cockroachlabs.com/docs/v20.2/start-a-local-cluster-in-docker-linux
 
@@ -14,59 +14,7 @@ $ aws ec2 run-instances --image-id ami-0dba2cb6798deb6d8 --count 2 --instance-ty
 ```
 
 
-
-
 ```sh
-cd /Library/WebServer/Documents/devops_bkp
-ssh -i curso.pem ubuntu@3.208.20.140
-ssh -i curso.pem ubuntu@34.229.162.118
-ssh -i curso.pem ubuntu@54.175.25.19
-ssh -i curso.pem ubuntu@34.229.156.136
-
-ssh -i cockroachdb.pem ubuntu@3.128.79.143
-ssh -i cockroachdb.pem ubuntu@18.222.100.185
-
-#!/bin/bash
-timedatectl set-ntp no
-apt-get update
-apt-get install ntp
-service ntp stop
-ntpd -b time.google.com
-service ntp start
-ntpq -p
-wget -qO- https://binaries.cockroachdb.com/cockroach-v20.2.3.linux-amd64.tgz | tar  xvz
-sudo cp -i cockroach-v20.2.3.linux-amd64/cockroach /usr/local/bin/
-
-
-cockroach start --insecure --advertise-addr=3.208.20.140 --join=3.208.20.140,34.229.162.118,54.175.25.19,34.229.156.136 --cache=.25 --max-sql-memory=.25  --background
-
-cockroach start --insecure --advertise-addr=34.229.162.118 --join=3.208.20.140,34.229.162.118,54.175.25.19,34.229.156.136 --cache=.25 --max-sql-memory=.25  --background
-
-
-cockroach start --insecure --advertise-addr=54.175.25.19 --join=3.208.20.140,34.229.162.118,54.175.25.19,34.229.156.136 --cache=.25 --max-sql-memory=.25  --background
-
-cockroach start --insecure --advertise-addr=34.229.156.136 --join=3.208.20.140,34.229.162.118,54.175.25.19,34.229.156.136 --cache=.25 --max-sql-memory=.25  --background
-
-
-
-workload run tpcc --drop --init --duration=20m --tolerate-errors "postgresql://root@34.229.156.136:26257/tpcc?sslmode=disable"
-
-
-ssh -i cockroachdb.pem ubuntu@3.128.79.143
-ssh -i cockroachdb.pem ubuntu@18.222.100.185
-
-
-#!/bin/bash
-timedatectl set-ntp no
-apt-get update
-apt-get install ntp
-service ntp stop
-ntpd -b time.google.com
-service ntp start
-ntpq -p
-wget -qO- https://binaries.cockroachdb.com/cockroach-v20.2.3.linux-amd64.tgz | tar  xvz
-sudo cp -i cockroach-v20.2.3.linux-amd64/cockroach /usr/local/bin/
-
 
 cockroach start --insecure --advertise-addr=3.128.79.143 --join=
  34.229.162.118, 54.175.25.19, 34.229.156.136 --cache=.25 --max-sql-memory=.25  --background
@@ -115,14 +63,8 @@ $ kubectl -n jonjon run cockroachdb -it \
 $ CREATE DATABASE files;
 ```
 
-z
-
-
-
 
 # INSTALAÇÃO DO ELB PARA DB
-
-!!! CRIAR O ELB COM BALANCEAMENTO DE CARGA ENTRE AS ZONAS !!!! MUITO IMPORTANTE.
 
 
 ```sh
