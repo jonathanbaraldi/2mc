@@ -10,12 +10,21 @@ O que iremos fazer?
 6. Configuração do DNS
 
 
+ativar as apis do google
+configurar o dns
+
+
 https://cloud.google.com/load-balancing/docs/https/ext-https-lb-simple
+
+
+
+API [compute.googleapis.com] not enabled on project [725193720429].
+
 
 # 1 - Configuração do Cluster Kubernetes
 ```sh
 # Creating a managed instance group
-$ gcloud compute instance-templates create lb-backend-template \
+$ gcloud compute instance-templates create multicloud \
    --region=us-east1 \
    --network=default \
    --boot-disk-size=60GB \
@@ -27,13 +36,15 @@ $ gcloud compute instance-templates create lb-backend-template \
    --metadata-from-file startup-script=install.sh
 
 # Create the managed instance group based on the template.
-$ gcloud compute instance-groups managed create lb-backend-example \
-   --template=lb-backend-template --size=3 --zone=us-east1-b
+$ gcloud compute instance-groups managed create multicloud-backend \
+   --template=multicloud --size=3 --zone=us-east1-b
 
 # Adding a named port to the instance group
-$ gcloud compute instance-groups set-named-ports lb-backend-example \
-    --named-ports http:80 \
+$ gcloud compute instance-groups set-named-ports multicloud-backend \
+    --named-ports https:443 \
     --zone us-east1-b
+
+
 
 
 # Configuring a firewall rule
@@ -46,6 +57,9 @@ $ gcloud compute firewall-rules create fw-allow-health-check \
     --rules=tcp:80
 
 ```
+
+
+
 
 # 2 - Configuração do Traefik
 
@@ -60,13 +74,44 @@ Agora iremos configurar o DNS pelo qual o Traefik irá responder. No arquivo ui.
 $ kubectl apply -f traefik.yaml
 ```
 
+
 # 3 - Configuração Longhorn
 
 # 4 -  Criação do certificado não válido
 
 ```sh
+> openssl req -new -x509 -keyout cert.pem -out cert.pem -days 365 -nodes
+Country Name (2 letter code) [AU]:DE
+State or Province Name (full name) [Some-State]:Germany
+Locality Name (eg, city) []:nameOfYourCity
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:nameOfYourCompany
+Organizational Unit Name (eg, section) []:nameOfYourDivision
+Common Name (eg, YOUR name) []:*.example.com
+Email Address []:webmaster@example.com
+```
+
+
+```sh
+
+# ENVIAR O ARQUIVO CERT QUE CRIARMOS PARA multicloud.ml
+
+# O codigo abaixo fazer o provisionamento automatico
+
+
+# multi-cloud-2
+
+# $ gcloud compute ssl-certificates create www-ssl-cert \
+#         --certificate=certificate-file \
+#         --private-key=private-key-file \
+#         --global
+    
+#  nome do certificado que subi - devops-ninja
+
+
+
+
 $ gcloud compute ssl-certificates create multicloud \
-    --description=multiclou \
+    --description=multicloud \
     --domains=multicloud.ml \
     --global
 
@@ -102,7 +147,7 @@ $ gcloud compute addresses describe lb-ipv4-1 \
     --format="get(address)" \
     --global
 
-#  34.120.93.126
+#  34.95.124.40
 
 # SETUP
 
@@ -119,9 +164,10 @@ $ gcloud compute backend-services create web-backend-service \
     --global
 
 
+
 # Add your instance group as the backend to the backend service.
 $ gcloud compute backend-services add-backend web-backend-service \
-    --instance-group=lb-backend-example \
+    --instance-group=multicloud-backend \
     --instance-group-zone=us-east1-b \
     --global
 
@@ -130,17 +176,10 @@ $ gcloud compute backend-services add-backend web-backend-service \
 $  gcloud compute url-maps create web-map-https \
     --default-service web-backend-service
 
-# $ gcloud compute ssl-certificates create www-ssl-cert \
-#         --certificate=certificate-file \
-#         --private-key=private-key-file \
-#         --global
-    
-#  nome do certificado que subi - devops-ninja
-
 
 # Criar um http proxy para fazer o  roteamento
 $ gcloud compute target-https-proxies create https-lb-proxy \
-    --url-map web-map-https --ssl-certificates devops-ninja
+    --url-map web-map-https --ssl-certificates multi-cloud-2
     
 # Criar regra global de forwarding 
 $ gcloud compute forwarding-rules create https-content-rule \

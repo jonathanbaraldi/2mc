@@ -23,11 +23,14 @@ https://github.com/jonathanbaraldi/devops-ninja-multicloud-multicluster-pt
 
 
 
+
 ## Aula 3 - Containers e Kubernetes
 
 - Containers
 - Kubernetes
 
+
+Pegar material do outro curso
 
 
 
@@ -140,7 +143,9 @@ Revisar todos os itens do curso e agradecer, falar sobre os pontos a serem melho
 
 - Terraform
 - Github Actions
-- Uso de VPN e SUBMARINER
+- Uso de VPN 
+- Submariner
+- ServiceMesh
 - Chaos Engineering
 - Testes automatizados
 

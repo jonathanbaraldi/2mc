@@ -1,6 +1,6 @@
 spec:
   rules:
-    - host: api.dev-ops-ninja.com
+    - host: api.multicloud.ml
       http:
         paths:
           - path: /book

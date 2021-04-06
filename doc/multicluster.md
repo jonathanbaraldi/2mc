@@ -4,7 +4,7 @@
 ## Por quê multi-cluster ???
 
 Noções básicas sobre Kubernetes multicluster
-As organizações estão cada vez mais implantando vários clusters Kubernetes para melhorar a disponibilidade, o isolamento e a escalabilidade. Saiba mais sobre os benefícios de criar aplicativos Kubernetes de vários clusters, como arquitetá-los e as estratégias disponíveis para implementá-los.
+As organizações estão cada vez mais implantando vários clusters Kubernetes para melhorar a disponibilidade, o isolamento e a escalabilidade.
 
 
 ## O que é Multi-Cluster?
@@ -12,10 +12,9 @@ As organizações estão cada vez mais implantando vários clusters Kubernetes p
 Multi-cluster é uma estratégia para implantar um aplicativo em ou entre vários clusters do Kubernetes com o objetivo de melhorar a disponibilidade, o isolamento e a escalabilidade. O multicluster pode ser importante para garantir a conformidade com regulamentações diferentes e conflitantes, pois os clusters individuais podem ser adaptados para cumprir regulamentações geográficas ou específicas de certificação. A velocidade e a segurança da entrega de software também podem ser aumentadas, com equipes de desenvolvimento individuais implantando aplicativos em clusters isolados e expondo seletivamente quais serviços estão disponíveis para teste e lançamento.
 
 
-
 ## Por que Multi-Cluster?
 
-Hoje, as organizações estão cada vez mais implantando muitos mais clusters Kubernetes e tratando esses clusters como descartáveis. Várias organizações falaram na KubeCon sobre “tratar os aglomerados como gado, não como animais de estimação”. Essa abordagem resulta em vários benefícios.
+Hoje, as organizações estão cada vez mais implantando muitos mais clusters Kubernetes e tratando esses clusters como descartáveis. Várias organizações falaram na KubeCon sobre “tratar os clusters como gado, não como animais de estimação”. Essa abordagem resulta em vários benefícios.
 
 
 
