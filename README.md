@@ -1,3 +1,4 @@
+<center>
 <a href="https://github.com/jonathanbaraldi/2mc/stargazers">
 	<img src="https://img.shields.io/github/stars/jonathanbaraldi/2mc" alt="Stars Badge"/>
 </a>
@@ -16,6 +17,7 @@
 <a href="https://github.com/jonathanbaraldi/2mc/blob/master/LICENSE">
 	<img src="https://img.shields.io/github/license/jonathanbaraldi/2mc?color=2b9348" alt="License Badge"/>
 </a>
+</center>
 
 
 ![DevOps Ninja - Multicloud-Multicluster](doc/logo.png)

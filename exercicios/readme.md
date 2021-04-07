@@ -3,15 +3,12 @@
 # Introdução
 
 ## Aula 1 - O curso e o instrutor
-
 - Apresentação
 - Agenda
 https://github.com/jonathanbaraldi/devops-ninja-multicloud-multicluster-pt
 
 
-
 ## Aula 2 - Nuvens
-
 - AWS
 - GCP
 - Requisitos mínimos
@@ -22,19 +19,12 @@ https://github.com/jonathanbaraldi/devops-ninja-multicloud-multicluster-pt
 
 
 
-
-
 ## Aula 3 - Containers e Kubernetes
-
 - Containers
 - Kubernetes
 
 
 Pegar material do outro curso
-
-
-
-
 
 
 

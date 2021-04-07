@@ -1,4 +1,4 @@
-![MultiCloud](multicloud3.jpg)
+![MultiCloud](img/multicloud3.jpg)
 
 # MULTI-CLOUD
 
@@ -36,7 +36,7 @@ Não usar uma abordagem de várias nuvens torna as empresas totalmente dependent
 “Existem muitos caminhos para várias nuvens - não apenas um movimento ousado para forjar uma nova estratégia de várias nuvens. A maioria das grandes empresas tem infraestrutura de computador local que é o resultado de muitas ondas de investimentos e implantações ao longo de décadas de gastos. A jornada para a nuvem múltipla está evoluindo, à medida que as empresas estão adotando uma variedade de serviços em nuvem para atender a desafios de negócios específicos, enquanto reduzem seus custos de TI para data centers locais. Em grandes empresas, algumas unidades de negócios podem ter optado por hospedar novamente um grande número de sistemas no AWS da Amazon ou no Microsoft Azure. Outros podem ter escolhido o Google Cloud Platform (GCP) por sua experiência em AI / ML por meio de análises baseadas no TensorFlow. Ao adotar uma abordagem de várias nuvens, os clientes corporativos ganham escolha, flexibilidade operacional - e a liberdade de escolher serviços CSP para a combinação ideal de negócios, segurança e considerações de custo.
 
 
-![MultiCloud](multicloud2.jpg)
+![MultiCloud](img/multicloud2.png)
 
 
 ## Por que as organizações escolhem uma estratégia multicloud
@@ -61,7 +61,7 @@ As exceções mais comuns à tendência multicloud são as organizações que co
 
 “Existem muitas nuances entre as plataformas, e tentar construir serviços em mais de uma simultaneamente é um desafio”, diz ele. “Começar devagar também permite que a equipe interna desenvolva suas habilidades e aprenda a gerenciar a nuvem.”
 
-![MultiCloud](multicloud4.jpg)
+![MultiCloud](img/multicloud4.png)
 
 ## 10 benefícios em ser multi-cloud
 

@@ -1,26 +1,29 @@
 
+![MultiCluster](img/deploy-kubernetes-cluster-on-centos.jpg)
+
 # MULTI-CLUSTER
-
-## Por quê multi-cluster ???
-
-Noções básicas sobre Kubernetes multicluster
-As organizações estão cada vez mais implantando vários clusters Kubernetes para melhorar a disponibilidade, o isolamento e a escalabilidade.
-
 
 ## O que é Multi-Cluster?
 
 Multi-cluster é uma estratégia para implantar um aplicativo em ou entre vários clusters do Kubernetes com o objetivo de melhorar a disponibilidade, o isolamento e a escalabilidade. O multicluster pode ser importante para garantir a conformidade com regulamentações diferentes e conflitantes, pois os clusters individuais podem ser adaptados para cumprir regulamentações geográficas ou específicas de certificação. A velocidade e a segurança da entrega de software também podem ser aumentadas, com equipes de desenvolvimento individuais implantando aplicativos em clusters isolados e expondo seletivamente quais serviços estão disponíveis para teste e lançamento.
 
 
+
 ## Por que Multi-Cluster?
+
+
+Noções básicas sobre Kubernetes multicluster...
+As organizações estão cada vez mais implantando vários clusters Kubernetes para melhorar a disponibilidade, o isolamento e a escalabilidade.
 
 Hoje, as organizações estão cada vez mais implantando muitos mais clusters Kubernetes e tratando esses clusters como descartáveis. Várias organizações falaram na KubeCon sobre “tratar os clusters como gado, não como animais de estimação”. Essa abordagem resulta em vários benefícios.
 
-
+![MultiCluster](img/k3s.jpg)
 
 ### Prontidão operacional aprimorada
 Ao padronizar a criação de cluster, os runbooks operacionais associados, solução de problemas e ferramentas são simplificados. Isso elimina fontes comuns de erros operacionais, ao mesmo tempo que reduz a carga cognitiva para engenheiros de suporte e SREs, o que acaba levando a um tempo de resposta geral aprimorado para problemas.
 
+
+![MultiCluster](img/kubernetes.png)
 
 ### Isolamento e multilocação
 As garantias de forte isolamento simplificam os principais processos operacionais, como cluster e atualizações de aplicativos. Além disso, o isolamento pode reduzir o raio de explosão de uma interrupção do cluster. Organizações com fortes requisitos de isolamento de locação podem encaminhar cada locatário para seu cluster individual.
@@ -70,7 +73,6 @@ Um breve resumo de cada uma das abordagens está abaixo:
 ![alt text](single-deployment.png)
 
 ![alt text](distributed-deployment.png)
-
 
 
 # Referências
